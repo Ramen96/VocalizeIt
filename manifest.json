@@ -14,6 +14,9 @@
         }
     ],
     "web_accessible_resources": [
-        "test.jpg"
-    ]
+        {
+            "resources": ["test.jpg"],
+            "matches": ["https://twitter.com/*", "https://youtube.com/*"]
+        }
+  ]
 }
