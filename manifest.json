@@ -1,0 +1,10 @@
+{
+    "name":"VocalizeIt",
+    "manifest_version":3,
+    "version":"1.0.0",
+    "author": "Eric Worsfold",
+    "action": {
+        "default_popup": "index.html",
+        "default_title": "Read articals with Ai"
+    }
+}
