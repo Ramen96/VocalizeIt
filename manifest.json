@@ -6,5 +6,11 @@
     "action": {
         "default_popup": "index.html",
         "default_title": "Read articals with Ai"
-    }
+    },
+    "content_scripts": [
+        {
+            "matches":["<all_urls>"],
+            "js":["main.js"]
+        }
+    ]
 }
