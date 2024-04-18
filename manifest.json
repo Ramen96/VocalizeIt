@@ -10,13 +10,17 @@
     "content_scripts": [
         {
             "matches":["<all_urls>"],
-            "js":["main.js"]
+            "js":["popup.js"],
+            "css":["style.css"]
         }
     ],
     "web_accessible_resources": [
         {
-            "resources": ["test.jpg"],
-            "matches": ["https://twitter.com/*", "https://youtube.com/*"]
+            "resources": ["/images/test.jpg"],
+            "matches": ["https://twitter.com/*"]
         }
-  ]
+    ],
+    "permissions": [
+        "sidePanel"
+    ]
 }
