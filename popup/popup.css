@@ -1,3 +1,14 @@
+h1 {
+  color: #ffffff;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+nav {
+  height: 5em;
+  width: 100vw;
+  border-bottom: 1px solid #ffffff5d;
+}
+
 .ext-body {
   padding: 0%;
   margin: 0%;
@@ -7,6 +18,12 @@
 }
 
 .center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-h {
   display: flex;
   justify-content: center;
 }
