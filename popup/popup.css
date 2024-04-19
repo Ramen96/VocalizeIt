@@ -1,43 +1,57 @@
-h1, h3 {
-  color: #5d9259;
-  font-family: 'Courier New', Courier, monospace;
+h1,
+h3,
+p {
+    color: #5d9259;
+    font-family: "Courier New", Courier, monospace;
 }
 
 nav {
-  height: 5em;
-  width: 100vw;
-  border-bottom: 1px solid #ffffff5d;
+    height: 5em;
+    width: 100vw;
+    border-bottom: 1px solid #ffffff5d;
 }
 
 button {
-  width: 125px;
-  height: 50px;
-  background-color: #5d9259;
-  border-color: #5d9259;
-  padding: 10px 20px;
-  box-shadow: none;
-  border: none;
-  border-radius: 10px;
-  color: #ffffff;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 200;
+    width: 125px;
+    height: 50px;
+    background-color: #5d9259;
+    border-color: #5d9259;
+    padding: 10px 20px;
+    box-shadow: none;
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: 200;
 }
 
 .ext-body {
-  padding: 0%;
-  margin: 0%;
-  height: 600px;
-  width: 400px;
-  background-color: rgba(0,0,0,0.9);
+    padding: 0%;
+    margin: 0%;
+    height: 600px;
+    width: 400px;
+    background-color: rgba(0, 0, 0, 0.9);
 }
 
 .center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .center-h {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
+}
+
+.ext-container {
+    height: 600px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: ceneter;
+}
+
+.test {
+    height: 400px;
 }
