@@ -1,17 +1,15 @@
-h1,
-h3,
-p {
+.text-green {
     color: #5d9259;
     font-family: "Courier New", Courier, monospace;
 }
 
-nav {
+.ext-nav {
     height: 5em;
     width: 100vw;
     border-bottom: 1px solid #ffffff5d;
 }
 
-button {
+.ext-button {
     width: 125px;
     height: 50px;
     background-color: #5d9259;
