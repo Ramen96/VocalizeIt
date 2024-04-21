@@ -7,18 +7,23 @@
         <title>VocalizeIt</title>
     </head>
     <body class="ext-body center-h">
-        <div class="center-h ext-container">
-            <div>
+        <div class="text-green">
+            <nav class="center">
                 <img
                     src="/images/logo.png"
                     alt="VocalizeIt logo"
                     class="ext-img"
                 />
+            </nav>
+            <br />
+            <section class="center-h">
+                <h3 class="text-green">Let AI read the article for you.</h3>
+            </section>
+            <div class="test center">
+                <p class="text-green">some text here</p>
             </div>
             <div class="center">
-                <section class="center-h">
-                    <h3 class="text-green">Let AI read the article for you.</h3>
-                </section>
+                <button class="ext-button">Click Me</button>
             </div>
         </div>
     </body>
