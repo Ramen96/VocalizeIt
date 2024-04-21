@@ -1,6 +1,8 @@
 .text-green {
     color: #4aa44f;
     font-family: "Courier New", Courier, monospace;
+    border-top: 1px solid gray;
+    width: 100%;
 }
 
 .ext-nav {
@@ -76,5 +78,5 @@
     width: 10em;
     height: 10em;
     border-radius: 25px;
-    padding: 10px;
+    padding: 15px;
 }
