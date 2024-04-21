@@ -66,5 +66,15 @@
 }
 
 .test {
-    height: 400px;
+    height: 325px;
+}
+
+/* ******* */
+/* Image  */
+/* ***** */
+.ext-img {
+    width: 10em;
+    height: 10em;
+    border-radius: 25px;
+    padding: 10px;
 }
