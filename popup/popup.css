@@ -3,11 +3,6 @@
     font-family: "Courier New", Courier, monospace;
 }
 
-.ext-nav {
-    height: 5em;
-    width: 100vw;
-    border-bottom: 1px solid #ffffff5d;
-}
 /* ****** */
 /* Button */
 /* ****** */
@@ -57,15 +52,6 @@
 .center-h {
     display: flex;
     justify-content: center;
-}
-
-.ext-container {
-    height: 100;
-    width: 100%;
-}
-
-.test {
-    height: 325px;
 }
 
 /* ******* */
