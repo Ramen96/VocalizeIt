@@ -1,3 +1,7 @@
-const buttonWorks = () => alert('It Works!');
+const buttonClicked = document.getElementById('submit');
 
-document.getElementById('submit').addEventListener('click', buttonWorks);
+buttonClicked.addEventListener("click", () => {
+  alert('It Works');
+})
+
+buttonClicked();
