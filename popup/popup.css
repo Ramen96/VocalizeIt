@@ -1,7 +1,6 @@
 .text-green {
     color: #4aa44f;
     font-family: "Courier New", Courier, monospace;
-    border-top: 1px solid gray;
 }
 
 .ext-nav {
@@ -25,6 +24,7 @@
     font-family: "Courier New", Courier, monospace;
     font-weight: 200;
     cursor: pointer;
+    padding-bottom: 10px;
 }
 
 .ext-button:hover {
@@ -45,6 +45,7 @@
     height: 600px;
     width: 400px;
     background-color: rgba(0, 0, 0, 0.9);
+    display: grid;
 }
 
 .center {
@@ -75,4 +76,17 @@
     height: 10em;
     border-radius: 25px;
     padding: 15px;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+.border-top {
+    border-top: #ffffff35 dotted 1px;
+}
+
+.postion-bottom {
+    position: absolute; 
+    bottom: 15px; 
 }
