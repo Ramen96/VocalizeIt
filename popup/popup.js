@@ -59,13 +59,18 @@ function getPronunciationDictionary () {
     }
   };
 
-  fetch('https://api.elevenlabs.io/v1/pronunciation-dictionaries/{pronunciation_dictionary_id}/', options)
-    .then(response => response.json())
-    .then(response => console.log('PronunciationDictionary: ',response))
-    .catch(err => console.error(err));
+  fetch('https://api.elevenlabs.io/v1/pronunciation-dictionaries/', options)
+  .then(response => response.json())
+  .then(response => console.log('PronunciationDictionary: ', response))
+  .catch(err => console.error(err));
+
+  // fetch('https://api.elevenlabs.io/v1/pronunciation-dictionaries/{pronunciation_dictionary_id}/', options)
+  //   .then(response => response.json())
+  //   .then(response => console.log('PronunciationDictionary: ',response))
+  //   .catch(err => console.error(err));
 }
 
 // Uncomment these linese to view dictionaries
-// getPronunciationDictionary();
+getPronunciationDictionary();
 // getVoiceIds();
 
