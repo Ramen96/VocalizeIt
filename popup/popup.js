@@ -1,6 +1,5 @@
+// This section is for handling the api
 const requestAPI = document.getElementById("submit");
-const getVoiceIds = document.getElementById("submit");
-
 const XI_API_KEY = "YOUR_API_KEY_HERE";
 
 requestAPI.addEventListener("click", () => {
@@ -35,11 +34,36 @@ requestAPI.addEventListener("click", () => {
     .catch(err => console.error(err));
 });
 
-getVoiceIds.addEventListener("click", () => {
-  const options = { method: "GET" };
 
-  fetch("https://api.elevenlabs.io/v1/voices", options)
-    .then((response) => response.json())
-    .then((response) => console.log(response))
-    .catch((err) => console.error(err));
-});
+// This section fetches data from the voice and pronunciation dictionaries
+
+function getVoiceIds() {
+  const submitButton = document.getElementById("submit");
+  submitButton.addEventListener("click", () => {
+    const options = { method: "GET" };
+
+    fetch("https://api.elevenlabs.io/v1/voices", options)
+      .then((response) => response.json())
+      .then((response) => console.log('Voices: ', response))
+      .catch((err) => console.error(err));
+  });
+}
+
+function getPronunciationDictionary () {
+  const options = {
+    method: 'GET',
+    headers: {
+      "xi-api-key": XI_API_KEY
+    }
+  };
+
+  fetch('https://api.elevenlabs.io/v1/pronunciation-dictionaries/{pronunciation_dictionary_id}/', options)
+    .then(response => response.json())
+    .then(response => console.log('PronunciationDictionary: ',response))
+    .catch(err => console.error(err));
+}
+
+// Uncomment these linese to view dictionaries
+getPronunciationDictionary();
+// getVoiceIds();
+
