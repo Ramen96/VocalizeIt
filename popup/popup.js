@@ -3,6 +3,8 @@ const requestAPI = document.getElementById("submit");
 const XI_API_KEY = "YOUR_API_KEY_HERE";
 
 requestAPI.addEventListener("click", () => {
+  const voiceId = '21m00Tcm4TlvDq8ikWAM';
+
   const options = {
     method: 'POST',
     headers: {
@@ -28,7 +30,7 @@ requestAPI.addEventListener("click", () => {
     })
   };
   
-  fetch(`https://api.elevenlabs.io/v1/text-to-speech/21m00Tcm4TlvDq8ikWAM/stream`, options)
+  fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceId}/stream`, options)
     .then(response => response.json())
     .then(response => console.log(response))
     .catch(err => console.error(err));
@@ -64,6 +66,6 @@ function getPronunciationDictionary () {
 }
 
 // Uncomment these linese to view dictionaries
-getPronunciationDictionary();
+// getPronunciationDictionary();
 // getVoiceIds();
 
