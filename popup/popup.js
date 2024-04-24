@@ -1,6 +1,6 @@
 // This section is for handling the api
 const requestAPI = document.getElementById("submit");
-const XI_API_KEY = "YOUR_API_KEY_HERE";
+const XI_API_KEY = "acaaeb54801d61ce869b6d812addc0cd";
 
 requestAPI.addEventListener("click", () => {
   const voiceId = '21m00Tcm4TlvDq8ikWAM';
@@ -60,11 +60,6 @@ function getPronunciationDictionary () {
   .then(response => response.json())
   .then(response => console.log('PronunciationDictionary: ', response))
   .catch(err => console.error(err));
-
-  // fetch('https://api.elevenlabs.io/v1/pronunciation-dictionaries/{pronunciation_dictionary_id}/', options)
-  //   .then(response => response.json())
-  //   .then(response => console.log('PronunciationDictionary: ',response))
-  //   .catch(err => console.error(err));
 }
 
 // Uncomment these linese to view dictionaries
