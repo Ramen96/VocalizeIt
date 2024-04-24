@@ -40,15 +40,12 @@ requestAPI.addEventListener("click", () => {
 // This section fetches data from the voice and pronunciation dictionaries
 
 function getVoiceIds() {
-  const submitButton = document.getElementById("submit");
-  submitButton.addEventListener("click", () => {
     const options = { method: "GET" };
 
     fetch("https://api.elevenlabs.io/v1/voices", options)
       .then((response) => response.json())
       .then((response) => console.log('Voices: ', response))
       .catch((err) => console.error(err));
-  });
 }
 
 function getPronunciationDictionary () {
@@ -72,5 +69,5 @@ function getPronunciationDictionary () {
 
 // Uncomment these linese to view dictionaries
 getPronunciationDictionary();
-// getVoiceIds();
+getVoiceIds();
 
