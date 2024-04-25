@@ -1,6 +1,6 @@
 // This section is for handling the api
 const requestAPI = document.getElementById("submit");
-const XI_API_KEY = "acaaeb54801d61ce869b6d812addc0cd";
+const XI_API_KEY = "YOUR_API_KEY_HERE";
 
 requestAPI.addEventListener("click", () => {
   const voiceId = '21m00Tcm4TlvDq8ikWAM';
