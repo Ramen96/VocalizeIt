@@ -2,7 +2,7 @@ import requests
 import os
 
 # Define your API key and the base URL for the Eleven Labs API
-XI_API_KEY = "API_KEY_HERE"
+XI_API_KEY = "YOUR_API_KEY_HERE"
 BASE_URL = "https://api.elevenlabs.io/v1"
 
 # Setup the headers for HTTP requests to include the API key and accept JSON responses
@@ -52,8 +52,8 @@ def main():
     The main function to upload a pronunciation dictionary.
     """
     # Define the path to your pronunciation dictionary file and its metadata
-    file_path = r"PATH_HERE"
-    name = "Your Pronunciation Dictionary"
+    file_path = r"./dictionary.pls"
+    name = "dictionary"
     description = "My custom pronunciation dictionary"
     
     # Upload the pronunciation dictionary and receive its ID and version ID
