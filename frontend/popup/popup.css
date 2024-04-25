@@ -79,8 +79,15 @@
     bottom: 15px; 
 }
 
+.ext-container-audio {
+    margin: 10px;
+    border: #ffffff35 dotted 1px;
+    border-radius: 15px;
+}
+
 .ext-audio::-webkit-media-controls-panel {
     background-color: #13cc7c;
+    border-color: #13cc7c;
   }
   
   .ext-audio::-webkit-media-controls-mute-button {

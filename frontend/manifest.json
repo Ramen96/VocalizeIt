@@ -20,6 +20,5 @@
       "resources": ["/images/logo.png"],
       "matches": ["https://twitter.com/*"]
     }
-  ],
-  "permissions": ["sidePanel"]
+  ]
 }

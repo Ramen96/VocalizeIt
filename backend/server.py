@@ -1,21 +1,21 @@
 import os
 import requests
-from flask import Flask
+from flask import Flask, send_file
 from dotenv import load_dotenv
 from api_request_handler import eleven_labs_tts
 
 api = os.getenv("XI_API_KEY")
 voice_id = "21m00Tcm4TlvDq8ikWAM"
-text = "Now I am become death... the destroyer of worlds."
+text = "Test 123 123"
 
 app = Flask(__name__)
+
 
 @app.route("/api/endpoint", methods=["POST"])
 def call_api():
   eleven_labs_tts(api, voice_id, text)
-  return 'API called sucessfully'
-  # In your terminal run curl -X POST http://127.0.0.1:5000/api/endpoint
-  # to call this app route
+  return send_file("./output/output.mp3")
+  
 
 
 if __name__ == '__main__':
