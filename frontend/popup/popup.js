@@ -2,9 +2,9 @@
 const submit = document.getElementById("submit");
 
 
-
 // Not sure why but after adding this promise the api only gets called when reloading the extesion
-function elevenLabsApiCall () {
+// UPDATE: Per note above. Changed it back to an anonymous function now it works.
+submit.addEventListener("click", () => {
   const options = {method: 'POST'};
       fetch('http://127.0.0.1:5000/api/endpoint', options)
       .then(response => response.blob())
@@ -28,7 +28,7 @@ function elevenLabsApiCall () {
           URL.revokeObjectURL(blobUrl);
         });
 
-        // Optionally, you can also handle errors
+        // Handle errors
         audio.addEventListener('error', function() {
           console.error('Error playing audio.');
         });
@@ -38,6 +38,7 @@ function elevenLabsApiCall () {
       .catch(error => {
         console.error('Fetch error:', error);
       });
-}
+})
+  
 
-submit.addEventListener("click", elevenLabsApiCall());
+// submit.addEventListener("click", elevenLabsApiCall());
