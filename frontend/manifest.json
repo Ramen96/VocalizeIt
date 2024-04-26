@@ -20,5 +20,8 @@
       "resources": ["/images/logo.png"],
       "matches": ["https://twitter.com/*"]
     }
+  ],
+  "permissions": [
+    "downloads"
   ]
 }
