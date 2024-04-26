@@ -1,6 +1,7 @@
 # Import necessary libraries
 import requests  # Used for making HTTP requests
 import json  # Used for working with JSON data
+from flask import send_file
 
 
 OUTPUT_PATH = "./output/output.mp3"  # Path to save the output audio file
@@ -39,6 +40,7 @@ def eleven_labs_tts(xi_api_key, voice_id, text_to_speak, CHUNK_SIZE=1024):
                 f.write(chunk)
         # Inform the user of success
         print("Audio stream saved successfully.")
+        # return send_file("./output/output.mp3")
     else:
         # Print the error message if the request was not successful
         print(response.text)
