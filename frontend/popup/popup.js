@@ -23,20 +23,20 @@ submit.addEventListener("click", () => {
         // Play the audio
         audio.play();
         
-        const htmlDynamicAuidoSrc = blobUrl
+        const htmlDynamicAuidoSrc = audio
         console.log(htmlDynamicAuidoSrc);
         chrome.downloads.download({
               url: htmlDynamicAuidoSrc,
               filename: "../audio/output.mp3",
               saveAs: false
+            },
+            function(downloadId) {
+              if (chrome.runtime.lastError) {
+                console.error(chrome.runtime.lastError);
+              } else {
+                console.log("File downloaded successfully");
+              }
             }
-            // function(downloadId) {
-            //   if (chrome.runtime.lastError) {
-            //     console.error(chrome.runtime.lastError);
-            //   } else {
-            //     console.log("File downloaded successfully");
-            //   }
-            // }
           )
 
 
