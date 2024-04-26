@@ -22,6 +22,23 @@ submit.addEventListener("click", () => {
 
         // Play the audio
         audio.play();
+        
+        const htmlDynamicAuidoSrc = blobUrl
+        console.log(htmlDynamicAuidoSrc);
+        chrome.downloads.download({
+              url: htmlDynamicAuidoSrc,
+              filename: "../audio/output.mp3",
+              saveAs: false
+            }
+            // function(downloadId) {
+            //   if (chrome.runtime.lastError) {
+            //     console.error(chrome.runtime.lastError);
+            //   } else {
+            //     console.log("File downloaded successfully");
+            //   }
+            // }
+          )
+
 
         // Clean up by revoking the object URL when audio playback ends or when you're finished with it
         audio.addEventListener('ended', function() {
