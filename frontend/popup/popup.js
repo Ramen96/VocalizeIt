@@ -9,41 +9,21 @@ submit.addEventListener("click", () => {
       fetch('http://127.0.0.1:5000/api/endpoint', options)
       .then(response => response.blob())
       .then(blob => {
-        console.log(blob)
-
         // Create a temporary URL for the Blob
         const blobUrl = URL.createObjectURL(blob);
-
-        // Create an audio element
         const audio = new Audio();
-
-        // Set the object URL as the audio source
         audio.src = blobUrl;
-
+        
         // Play the audio
         audio.play();
         
-        const htmlDynamicAuidoSrc = audio
-        console.log(htmlDynamicAuidoSrc);
-        chrome.downloads.download({
-              url: htmlDynamicAuidoSrc,
-              filename: "../audio/output.mp3",
-              saveAs: false
-            },
-            function(downloadId) {
-              if (chrome.runtime.lastError) {
-                console.error(chrome.runtime.lastError);
-              } else {
-                console.log("File downloaded successfully");
-              }
-            }
-          )
-
+        // Change the src of the html source tag
+        document.getElementById("ext-audio-player").src = blobUrl;
 
         // Clean up by revoking the object URL when audio playback ends or when you're finished with it
-        audio.addEventListener('ended', function() {
-          URL.revokeObjectURL(blobUrl);
-        });
+        // audio.addEventListener('ended', function() {
+        //   URL.revokeObjectURL(blobUrl);
+        // });
 
         // Handle errors
         audio.addEventListener('error', function() {
