@@ -1,6 +1,7 @@
 # Import necessary libraries
 import requests  # Used for making HTTP requests
 import json  # Used for working with JSON data
+import os.path
 from flask import send_file
 
 
@@ -33,6 +34,9 @@ def eleven_labs_tts(xi_api_key, voice_id, text_to_speak, CHUNK_SIZE=1024):
 
     # Check if the request was successful
     if response.ok:
+        # Check if path exists
+        if os.path.isfile("./output/output.mp3"):
+            os.remove("./output/output.mp3")
         # Open the output file in write-binary mode
         with open(OUTPUT_PATH, "wb") as f:
             # Read the response in chunks and write to the file
