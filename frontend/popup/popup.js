@@ -1,10 +1,31 @@
 // import { getPageURL } from '/background.js'
 
-const getPageURL = window.location.href
-console.log("Window Location: ", getPageURL);
+// const getPageURL = window.location.href
+// console.log("Window Location: ", getPageURL);
 
+async function scrapeText() {
+  let [tab] = await chrome.tabs.query({
+    active: true,
+    currnetWindow: true
+  })
+  chrome.scripting.executeScript({
+    target: {tabId: tab.id},
+    func: getTextFromPage,
+  })
+}
 
+// function getTextFromPage() {
+//   const textRegEx = (?s)<[^>]*>|
 
+// }
+
+function getTextFromPage() {
+  const textRegEx = /(?s)<[^>]*>|/g;
+
+  let pageText = document.body.innerHTML.match(textRegEx);
+  console.log("Page text: ", pageText);
+}
+getTextFromPage();
 
 // Call api
 const submit = document.getElementById("submit");
