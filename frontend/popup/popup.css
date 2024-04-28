@@ -188,7 +188,7 @@ body{
   opacity: 0;
   pointer-events: none;
 }
-.dark-light:checked + label,
+/* .dark-light:checked + label,
 .dark-light:not(:checked) + label{
   position: fixed;
   top: 40px;
@@ -253,7 +253,7 @@ body{
 
 .dark-light:checked ~ .light-back{
   opacity: 1;
-}
+} */
 .dropdown:checked + label,
 .dropdown:not(:checked) + label{
   position: relative;
@@ -365,9 +365,9 @@ body{
   z-index: 2;
   transition: all 200ms linear;
 }
-.dark-light:checked ~ .sec-center .section-dropdown:after {
+/* .dark-light:checked ~ .sec-center .section-dropdown:after {
   border-bottom: 8px solid #fff;
-}
+} */
 
 a {
   position: relative;
