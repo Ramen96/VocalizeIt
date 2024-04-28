@@ -7,10 +7,18 @@
     "default_popup": "/popup/popup.html",
     "default_title": "Read articals with Ai"
   },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "scripting",
+     "tabs",
+     "activeTab"
+  ],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["/popup/popup.js"],
+      "js": ["/popup/popup.js", "/scripts/content.js", "background.js"],
       "css": ["/popup/popup.css"],
       "html": ["/popup/popup.html"]
     }
@@ -20,8 +28,5 @@
       "resources": ["/images/logo.png"],
       "matches": ["https://twitter.com/*"]
     }
-  ],
-  "permissions": [
-    "downloads"
   ]
 }
