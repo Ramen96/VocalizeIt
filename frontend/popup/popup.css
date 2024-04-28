@@ -94,3 +94,17 @@
     background-color: #B1D4E0;
     border-radius: 50%;
   }
+
+.ext-text-input {
+    width: 90%;
+    height: 25px;
+    border-radius: 13px;
+    border: none;
+    background-color: #ffffff1c;
+    color: #ffffff;
+    text-indent: 10px;
+}
+
+.ext-text-input:focus {
+    outline: none;
+}
