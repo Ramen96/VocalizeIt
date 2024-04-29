@@ -14,11 +14,6 @@ async function scrapeText() {
   })
 }
 
-// function getTextFromPage() {
-//   const textRegEx = (?s)<[^>]*>|
-
-// }
-
 function getTextFromPage() {
   const textRegEx = /(?s)<[^>]*>|/g;
 
