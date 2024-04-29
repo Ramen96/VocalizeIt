@@ -248,7 +248,7 @@
   z-index: 2;
   transition: all 200ms linear;
 }
-a {
+.my-icon {
   position: relative;
   color: #fff;
   transition: all 200ms linear;
@@ -271,11 +271,11 @@ a {
   justify-content: space-between;
     -ms-flex-pack: distribute;
 }
-a:hover {
+.my-icon:hover {
   color: #102770;
   background-color: #ffeba7;
 }
 
-a .uil {
+.my-icon {
   font-size: 22px;
 }
