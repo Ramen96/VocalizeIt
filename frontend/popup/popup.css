@@ -248,7 +248,7 @@
   z-index: 2;
   transition: all 200ms linear;
 }
-.my-icon {
+.ext-icon {
   position: relative;
   color: #fff;
   transition: all 200ms linear;
@@ -271,11 +271,11 @@
   justify-content: space-between;
     -ms-flex-pack: distribute;
 }
-.my-icon:hover {
+.ext-icon:hover {
   color: #102770;
   background-color: #ffeba7;
 }
 
-.my-icon .section-dropdown {
+.ext-icon .section-dropdown {
   font-size: 22px;
 }
