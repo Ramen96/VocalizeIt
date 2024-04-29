@@ -203,7 +203,7 @@
   margin-left: 10px;
   transition: transform 200ms linear;
 }
-.section-dropdown {
+.ext-section-dropdown {
   position: absolute;
   padding: 5px;
   background-color: #111;
@@ -219,12 +219,12 @@
   transform: translateY(20px);
   transition: all 200ms linear;
 }
-.dropdown:checked ~ .section-dropdown{
+.dropdown:checked ~ .ext-section-dropdown{
   opacity: 1;
   pointer-events: auto;
   transform: translateY(0);
 }
-.section-dropdown:before {
+.ext-section-dropdown:before {
   position: absolute;
   top: -20px;
   left: 0;
@@ -234,7 +234,7 @@
   display: block;
   z-index: 1;
 }
-.section-dropdown:after {
+.ext-section-dropdown:after {
   position: absolute;
   top: -7px;
   left: 30px;
@@ -276,6 +276,6 @@
   background-color: #ffeba7;
 }
 
-.ext-icon .section-dropdown {
+.ext-icon .ext-section-dropdown {
   font-size: 22px;
 }
