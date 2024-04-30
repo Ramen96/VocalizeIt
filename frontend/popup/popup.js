@@ -1,9 +1,23 @@
-function queryActiveTab() {
-  chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-    console.log(tabs);
+// function queryActiveTab() {
+//   chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+//     return tabs[0].url;
+//   })
+// }
+
+// let myVar = queryActiveTab();
+
+// console.log("Active tab url: ", myVar);
+
+const activeTabUrl = new Promise((resolve) => {
+  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    resolve(tabs[0].url);
+    console.log("URLLLLL", tabs[0].url); // logs the URl
+    // Need to figure out how to properly handle async operation 
   })
-}
-queryActiveTab();
+})
+
+
+console.log(activeTabUrl)
 
 // Call api
 const submit = document.getElementById("submit");
