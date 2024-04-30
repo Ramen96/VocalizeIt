@@ -1,1 +1,0 @@
-console.log("Backgroundjs: ", window.location.href);
