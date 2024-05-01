@@ -7,9 +7,6 @@
     "default_popup": "/popup/popup.html",
     "default_title": "Read articals with Ai"
   },
-  "background": {
-    "service_worker": "background.js"
-  },
   "permissions": [
     "scripting",
      "tabs",
