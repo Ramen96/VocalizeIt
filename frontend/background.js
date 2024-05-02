@@ -1,4 +1,4 @@
-// const { Callback } = require("puppeteer");
+import puppeteer from 'puppeteer';
 
 // Get URL
 async function getActiveTabUrl () {
@@ -11,15 +11,36 @@ async function getActiveTabUrl () {
   })
 }
 
-(async () => { // This is just here for testing purposes.
-  try {        // Next step is to scrape text off websites.
-    const myVar = await getActiveTabUrl();
-    console.log(myVar);
+// Testing web scraper
+// Testing specifcally for x.com
+async function scrapeData(url) {
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+
+  await page.goto(url);
+
+  const [element] = await page.$x('//*[@id="id__ak4x9tlofns"]/span');
+  const src = await element.getPropety('src');
+  const srcTxt = await src.jsonValue();
+
+  console.log({srcTxt});
+
+  await browser.close();
+}
+
+(async () => { 
+  try {        
+    const url = await getActiveTabUrl();
+    console.log("URL: ", url);
+
+    const testScraper = document.getElementById("test-scraper");
+    testScraper.addEventListener("click", () => {
+      scrapeData(url);
+    })
   } catch (error) {
     console.error(error);
   }
 })();
-
 
 // Call api
 const submit = document.getElementById("submit");
@@ -53,3 +74,4 @@ function callApi() {
 submit.addEventListener("click", () => {
   chrome.action.onClicked.addListener({Callback: callApi()})
 });
+
