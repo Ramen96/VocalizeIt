@@ -1,4 +1,4 @@
-import puppeteer from 'puppeteer';
+import { puppeteer } from 'puppeteer';
 
 // Get URL
 async function getActiveTabUrl () {
