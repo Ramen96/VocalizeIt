@@ -1,5 +1,10 @@
-environment.env
-.DS_Store
+# Directories
 node_modules/
 dist/
 backend/
+.yarn/
+
+# Files
+.yarnrc.yml
+environment.env
+.DS_Store
