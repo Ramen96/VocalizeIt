@@ -11,5 +11,15 @@
   "action": {
     "default_title": "Click Me",
     "default_popup": "popup.html"
-  }
+  },
+  "permissions": [
+    "tabs",
+    "bookmarks"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "//": "Webpack is converting background.ts to .js so thats why it's .js here." 
+  },
+  "options_page": "options.html"
 }
+
