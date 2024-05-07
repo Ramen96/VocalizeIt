@@ -20,6 +20,12 @@
     "service_worker": "background.js",
     "//": "Webpack is converting background.ts to .js so thats why it's .js here." 
   },
+  "content_scripts": [
+    {
+      "matches": ["https://*.google.com/*"],
+      "js": ["contentScript.js"]
+    }
+  ],
   "options_page": "options.html"
 }
 
