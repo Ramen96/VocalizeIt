@@ -4,7 +4,7 @@ import Nav from '../components/Nav/nav'
 import '../assets/tailwind.css'
 
 const popup = (
-  <div>
+  <div className="flex items-center justify-center">
     <Nav />
   </div>
 )
