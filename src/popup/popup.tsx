@@ -1,11 +1,15 @@
 import React from "react";
 import {createRoot} from 'react-dom/client';
-import Nav from '../components/Nav/nav'
-import '../assets/tailwind.css'
+import Nav from '../components/Nav/nav';
+import Audio from "../components/Audio/audio";
+import DropDown from "../components/Dropdown/dropdown";
+import '../assets/tailwind.css';
 
 const popup = (
-  <div className="flex items-center justify-center">
+  <div className="flex flex-col items-center">
     <Nav />
+    <Audio />
+    <DropDown />
   </div>
 )
 
