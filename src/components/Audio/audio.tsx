@@ -5,12 +5,12 @@ import '../../assets/tailwind.css';
 class Audio extends Component {
   render() {
     return (
-      <>
-        <audio controls className="ext-audio m-4 border-top" id="ext-audio-player">
+      <div className="border-top w-96 flex justify-center items-center">
+        <audio controls className="ext-audio m-4" id="ext-audio-player">
           <source id="ext-audio-player" src="../audio/output.mp3" type="audio/ogg" />
           <source id="ext-audio-player" src="../audio/output.mp3" type="audio/ogg"/>
         </audio>
-      </>
+      </div>
     )
   }
 }
