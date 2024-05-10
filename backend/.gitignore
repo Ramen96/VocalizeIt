@@ -1,4 +1,2 @@
-# Directories
-venv/
 __pycache__/
-output/*
+venv/

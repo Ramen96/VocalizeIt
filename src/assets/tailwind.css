@@ -1,13 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
 
-.text-green {
+body {
+  padding: 0%;
+    margin: 0%;
+    height: 600px;
+    width: 400px;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: grid;
+    background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat-back.svg');
+    background-position: center;
+    background-repeat: repeat;
+    background-size: 4%;
+}
+
+.logo-ext {
+  width: 10em;
+  height: 10em;
+  border-radius: 25px;
+  padding: 15px;
+}
+
+ .text-green {
     color: #36d38f;
     font-family: "Courier New", Courier, monospace;
 }
 
-/* ****** */
-/* Button */
-/* ****** */
+
 .ext-button {
     width: 125px;
     height: 50px;
@@ -39,46 +60,8 @@
     transform: translateY(4px);
 }
 
-/* ****** */
-/* BODY */
-/* ****** */
-.ext-body {
-    padding: 0%;
-    margin: 0%;
-    height: 600px;
-    width: 400px;
-    background-color: rgba(0, 0, 0, 0.9);
-    display: grid;
-    background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat-back.svg');
-    background-position: center;
-    background-repeat: repeat;
-    background-size: 4%;
-}
 
-.center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.center-h {
-    display: flex;
-    justify-content: center;
-}
-
-/* ******* */
-/* Image  */
-/* ***** */
-.ext-img {
-    width: 10em;
-    height: 10em;
-    border-radius: 25px;
-    padding: 15px;
-}
-
-.width-100 {
-    width: 100%;
-}
 
 .border-top {
     border-top: #ffffff35 dotted 1px;
@@ -128,7 +111,7 @@
     background-color: #ffffff1c;
     text-indent: 10px;
     margin-top: 15px;
-}
+} 
 
 ::placeholder {
     color: #ffffff9a;
@@ -181,7 +164,7 @@
   box-shadow: 0 12px 35px 0 rgba(255,235,167,.15);
 }
 
-.dropdown:checked + label:before,
+ .dropdown:checked + label:before,
 .dropdown:not(:checked) + label:before{
   position: fixed;
   top: 0;
@@ -192,7 +175,7 @@
   z-index: -1;
   cursor: auto;
   pointer-events: none;
-}
+} 
 .dropdown:checked + label:before{
   pointer-events: auto;
 }

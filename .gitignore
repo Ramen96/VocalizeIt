@@ -1,3 +1,9 @@
+# Directories
+node_modules/
+dist/
+.yarn/
+
+# Files
+.yarnrc.yml
 environment.env
 .DS_Store
-node_modules/

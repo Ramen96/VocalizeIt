@@ -48,3 +48,4 @@ def eleven_labs_tts(xi_api_key, voice_id, text_to_speak, CHUNK_SIZE=1024):
     else:
         # Print the error message if the request was not successful
         print(response.text)
+        
