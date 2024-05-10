@@ -62,6 +62,9 @@ module.exports = {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist')
   },
+  externals: {
+    puppeteer: 'commonjs2 puppeteer',
+  },
   optimization: {
     splitChunks: {
       chunks: 'all',
