@@ -1,5 +1,5 @@
-import puppeteer from 'puppeteer';
-
+import puppeteer from "puppeteer";
+import path from "path";
 
 // Get URL
 async function getActiveTabUrl () {
@@ -46,32 +46,33 @@ async function getActiveTabUrl () {
 
 // Testing puppeteer
 (async () => {
-  // Launch the browser and open a new blank page
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
-
-  // Navigate the page to a URL
-  await page.goto('https://developer.chrome.com/');
-
-  // Set screen size
-  await page.setViewport({width: 1080, height: 1024});
-
-  // Type into search box
-  await page.type('.devsite-search-field', 'automate beyond recorder');
-
-  // Wait and click on first result
-  const searchResultSelector = '.devsite-result-item-link';
-  await page.waitForSelector(searchResultSelector);
-  await page.click(searchResultSelector);
-
-  // Locate the full title with a unique string
-  const textSelector = await page.waitForSelector(
-    'text/Customize and automate'
+  const pathToExtension = path.join(process.cwd(), 'my-extension');
+  const browser = await puppeteer.launch({
+    args: [
+      `--disable-extensions-except=${pathToExtension}`,
+      `--load-extension=${pathToExtension}`,
+    ],
+  });
+  
+  const workerTarget = await browser.waitForTarget(
+    // Assumes that there is only one service worker created by the extension and its URL ends with background.js.
+    target =>
+      target.type() === 'service_worker' && target.url().endsWith('background.js')
   );
-  const fullTitle = await textSelector?.evaluate(el => el.textContent);
-
-  // Print the full title
-  console.log('The title of this blog post is "%s".', fullTitle);
-
+  
+  const worker = await workerTarget.worker();
+  
+  // Open a popup (available for Canary channels).
+  await worker.evaluate('chrome.action.openPopup();');
+  
+  const popupTarget = await browser.waitForTarget(
+    // Assumes that there is only one page with the URL ending with popup.html and that is the popup created by the extension.
+    target => target.type() === 'page' && target.url().endsWith('popup.html')
+  );
+  
+  const popupPage = popupTarget.asPage();
+  
+  // Test the popup page as you would any other page.
+  
   await browser.close();
 })();
