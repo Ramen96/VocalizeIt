@@ -1,36 +1,25 @@
 import puppeteer from "puppeteer";
 import path from "path";
 
-// Testing puppeteer
+//Testing puppeteer
+// background.js
 
-async function scrapeWebsite() {
-  const extensonPath = '/dist';
-  const browser = await puppeteer.launch({
-    headless: false,
-    args: [
-      `--disable-extensions-execpt=${extensonPath}`,
-      `--load-extension=${extensonPath}`
-
-    ]
-  });
+async function launchPuppeteer() {
+  const browser = await puppeteer.launch();
   const page = await browser.newPage();
-  await page.goto('https://developer.chrome.com/docs/puppeteer/examples');
-  // Write your scraping logic here
-  const data = await page.evaluate(() => {
-    // Example scraping logic
-    const title = document.querySelector('h2').innerText;
-    return { title };
+
+  chrome.runtime.onConnect.addListener(async (port) => {
+    port.onMessage.addListener(async (msg) => {
+      if (msg.action === 'getH2Text') {
+        await page.goto('https://developer.chrome.com/docs/puppeteer/examples');
+        const h2Text = await page.evaluate(() => {
+          const h2Element = document.querySelector('h2');
+          return h2Element ? h2Element.innerText : 'No h2 element found';
+        });
+        port.postMessage({ h2Text });
+      }
+    });
   });
-  await browser.close();
-  console.log(data);
-  return data;
 }
 
-
-(async () => { 
-  try {        
-    scrapeWebsite();
-  } catch (error) {
-    console.error(error);
-  }
-})();
+launchPuppeteer();
