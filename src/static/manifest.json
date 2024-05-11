@@ -3,6 +3,7 @@
   "name": "VocalizeIt",
   "description": "extension",
   "version": "1.0.0",
+  "host_permissions": ["<all_urls>"],
   "icons": {
     "16": "icon.png",
     "48": "icon.png",
