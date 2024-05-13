@@ -28,7 +28,7 @@ class DropDown extends Component {
 
   render() {
     this.getVoices(); // Testing 
-    console.log("This.state", this.state) // Works but keeps refreshing in console.
+    console.log("This.state", this.state) // Works but keeps refreshing in console. I think it is because it is inside of render()
     return (
       <div className="sec-center"> 	
         <input className="dropdown" type="checkbox" id="dropdown" name="dropdown"/>
