@@ -3,8 +3,11 @@ import { Component } from "react";
 import '../../assets/tailwind.css';
 
 
-function callApi() {
-  const options = {method: 'POST'};
+function playVoice() {
+  const options = {
+    method: 'POST',
+    voiceId: this.state.voiceId
+  };
     fetch('http://127.0.0.1:5000/api/endpoint', options)
     .then(response => response.blob())
     .then(blob => {
@@ -28,10 +31,10 @@ function callApi() {
       console.error('Fetch error:', error);
     });
 }
-const Submit = ({iHaveBeenClicked}) => {
+const Submit = ({getVoices}) => {
   return (
     <div className="flex justify-center">
-      <button onClick={iHaveBeenClicked} id="submit" className="ext-button postion-bottom">Submit</button>
+      <button onClick={getVoices} id="submit" className="ext-button postion-bottom">Submit</button>
     </div>
   )
 }

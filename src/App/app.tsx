@@ -27,6 +27,7 @@ async function getActiveTabUrl () {
 const initialState = {
   url: '',
   voiceId: '',
+  text: ''
 }
 
 class App extends Component  {
@@ -40,31 +41,13 @@ class App extends Component  {
       .catch(err => console.error(err));
   }
 
-  playVoice = () => {
-    const options = {method: 'POST'};
-      fetch('http://127.0.0.1:5000/api/endpoint', options)
-      .then(response => response.blob())
-      .then(blob => {
-        // Create a temporary URL for the Blob
-        const blobUrl = URL.createObjectURL(blob);
-        console.log(blobUrl);
-
-        // const audio = new Audio();
-        // audio.src = blobUrl;
-        // audio.play();
-      })
-      .catch(error => {
-        console.error('Fetch error:', error);
-      });
-  }
-
   render() {
     return (
       <div className="flex flex-col items-center h-24">
         <Nav />
         <Audio />
         <DropDown />
-        <Submit iHaveBeenClicked={this.getVoices} />
+        <Submit getVoices={this.getVoices} />
       </div>
     )
   }
