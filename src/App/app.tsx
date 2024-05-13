@@ -38,8 +38,16 @@ const initialState = {
 }
 
 class App extends Component  {
+
   iHaveBeenClicked = () => {
     alert('You clicked me! 84983938')
+  }
+  getVoices = () => {
+    const options = {method: 'GET'};
+    fetch('https://api.elevenlabs.io/v1/voices/', options)
+      .then(response => response.json())
+      .then(response => console.log(response))
+      .catch(err => console.error(err));
   }
 
   // callApi = () => {
@@ -74,7 +82,7 @@ class App extends Component  {
         <Nav />
         <Audio />
         <DropDown />
-        <Submit iHaveBeenClicked={this.iHaveBeenClicked} />
+        <Submit iHaveBeenClicked={this.getVoices} />
       </div>
     )
   }
