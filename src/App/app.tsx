@@ -5,6 +5,12 @@ import DropDown from "../components/Dropdown/dropdown";
 import Submit from "../components/Submit/submit";
 import '../assets/tailwind.css';
 
+const initialState = {
+  url: '',
+  voiceId: '',
+  text: ''
+}
+
 async function getActiveTabUrl () {
   return new Promise((resolve, reject) => {
     chrome.tabs.query({ active: true, currentWindow: true }, (array) => {
@@ -24,21 +30,15 @@ async function getActiveTabUrl () {
   }
 })();
 
-const initialState = {
-  url: '',
-  voiceId: '',
-  text: ''
-}
-
 class App extends Component  {
 
-  getVoices = () => {
-    const options = {method: 'GET'};
-    fetch('https://api.elevenlabs.io/v1/voices/', options)
-      .then(response => response.json())
-      .then(response => response.voices)
-      .then(response => console.log(response))
-      .catch(err => console.error(err));
+  constructor(props) {
+    super(props);
+    this.state = initialState;
+  }
+
+  logState = () => {
+    console.log(this.state)
   }
 
   render() {
@@ -47,7 +47,7 @@ class App extends Component  {
         <Nav />
         <Audio />
         <DropDown />
-        <Submit getVoices={this.getVoices} />
+        <Submit />
       </div>
     )
   }

@@ -31,10 +31,10 @@ function playVoice() {
       console.error('Fetch error:', error);
     });
 }
-const Submit = ({getVoices}) => {
+const Submit = () => {
   return (
     <div className="flex justify-center">
-      <button onClick={getVoices} id="submit" className="ext-button postion-bottom">Submit</button>
+      <button onClick={playVoice} id="submit" className="ext-button postion-bottom">Submit</button>
     </div>
   )
 }
