@@ -8,27 +8,24 @@ class DropDown extends Component {
     super(props);
     this.state = {
       voiceId: '',
-      voiceName: []
+      voiceName: [],
+      voiceArrayPosition: []
     }
   }
-
-  getVoices = () => {
+  
+  componentDidMount(): void {
     const options = {method: 'GET'};
     fetch('https://api.elevenlabs.io/v1/voices/', options)
       .then(response => response.json())
       .then(response => response.voices)
       .then(response => {
-        const voices = response;
-        console.log(voices);
-
-        this.setState({voiceName: voices});
+        this.setState({voiceName: response});
       })
       .catch(err => console.error(err));
   }
 
   render() {
-    this.getVoices(); // Testing 
-    console.log("This.state", this.state) // Works but keeps refreshing in console. I think it is because it is inside of render()
+    console.log("This.state", this.state);
     return (
       <div className="sec-center"> 	
         <input className="dropdown" type="checkbox" id="dropdown" name="dropdown"/>
