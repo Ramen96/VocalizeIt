@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import '../../assets/tailwind.css';
 
-interface Voice {
-  id: string;
-  name: string;
-}
-
 const DropDown: React.FC = () => {
-  const [voiceId, setVoiceId] = useState<string>('');
-  const [voiceName, setVoiceName] = useState<string>('');
-  const [voiceArrayPosition, setVoiceArrayPosition] = useState<Voice[]>([]);
+  const [voiceId, setVoiceId] = useState('');
+  const [voiceName, setVoiceName] = useState('');
+  const [voiceArrayPosition, setVoiceArrayPosition] = useState([]);
 
   useEffect(() => {
     const options = { method: 'GET' };
@@ -20,11 +15,6 @@ const DropDown: React.FC = () => {
       })
       .catch(err => console.error(err));
   }, []);
-
-  const handleVoiceChange = (voice: Voice) => {
-    setVoiceId(voice.id);
-    setVoiceName(voice.name);
-  };
 
   return (
     <div className="sec-center">
@@ -38,7 +28,7 @@ const DropDown: React.FC = () => {
             key={voice.id}
             href="#"
             className="ext-icon"
-            onClick={() => handleVoiceChange(voice)}
+            onClick={() => setVoiceName(voice.name)}
           >
             {voice.name}
             <i className="uil uil-arrow-right"></i>
