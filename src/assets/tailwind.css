@@ -205,6 +205,8 @@ body {
   pointer-events: none;
   transform: translateY(20px);
   transition: all 200ms linear;
+  height: 250px;
+  overflow: auto;
 }
 .dropdown:checked ~ .ext-section-dropdown{
   opacity: 1;
