@@ -8,7 +8,7 @@ class DropDown extends Component {
     super(props);
     this.state = {
       voiceId: '',
-      voiceName: [],
+      voiceName: '',
       voiceArrayPosition: []
     }
   }
@@ -24,6 +24,12 @@ class DropDown extends Component {
       .catch(err => console.error(err));
   }
 
+  // TODO: 
+  // 1. Figure out how to update the section dropdown with the voice names dynamically
+  //    - Voices are stored in an array containing objects voiceArrayPosition: []
+  // 2. Create function that will loop through the array grabing the voice name and ID 
+  //      - Display them in the section dropdown 
+  // 3. When a voice in the drop down is clicked on update state for voice name, ID and display voiceName as the lable.
   render() {
     console.log("This.state", this.state);
     return (
