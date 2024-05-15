@@ -3,9 +3,8 @@ import '../../assets/tailwind.css';
 
 const DropDown: React.FC = () => {
   const [voiceId, setVoiceId] = useState('');
-  const [voiceName, setVoiceName] = useState('');
+  const [voiceName, setVoiceName] = useState('AI Voices');
   const [voiceArrayPosition, setVoiceArrayPosition] = useState([]);
-  const [nameDisplay, setNameDisplay] = useState('AI Voices');
 
   useEffect(() => {
     const options = { method: 'GET' };
@@ -22,7 +21,7 @@ const DropDown: React.FC = () => {
     <div className="sec-center">
       <input className="dropdown" type="checkbox" id="dropdown" name="dropdown" />
       <label className="for-dropdown" htmlFor="dropdown">
-        {nameDisplay}<i className="uil uil-arrow-down ext-icon2"></i>
+        {voiceName}<i className="uil uil-arrow-down ext-icon2"></i>
       </label>
       <div className="ext-section-dropdown">
         {voiceArrayPosition.map(voice => (
@@ -30,7 +29,10 @@ const DropDown: React.FC = () => {
             key={voice.voice_id}
             href="#"
             className="ext-icon"
-            onClick={() => setVoiceName(voice.name)}
+            onClick={() => {
+              setVoiceName(voice.name);
+              setVoiceId(voice.voice_id);
+            }}
           >
             {voice.name}
             <i className="uil uil-arrow-right"></i>
