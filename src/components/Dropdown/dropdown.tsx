@@ -24,10 +24,6 @@ const DropDown: React.FC<DropDownProps> = ({
   setVoiceId,
   setVoiceArrayPosition
 }) => {
-  // const [voiceId, setVoiceId] = useState('');
-  // const [voiceName, setVoiceName] = useState('AI Voices');
-  // const [voiceArrayPosition, setVoiceArrayPosition] = useState([]);
-
 
   useEffect(() => {
     const options = { method: 'GET' };
