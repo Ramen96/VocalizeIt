@@ -6,7 +6,6 @@ import '../../assets/tailwind.css';
 function playVoice() {
   const options = {
     method: 'POST',
-    voiceId: this.state.voiceId
   };
     fetch('http://127.0.0.1:5000/api/endpoint', options)
     .then(response => response.blob())

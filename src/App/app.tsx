@@ -5,11 +5,21 @@ import DropDown from "../components/Dropdown/dropdown";
 import Submit from "../components/Submit/submit";
 import '../assets/tailwind.css';
 
+
+
 const App: React.FC = () => {
 
-  const [url, setUrl] = useState('');
-  const [voiceId, setVoiceId] = useState('');
-  const [text, setText] = useState('');
+  interface Voice {
+    voiceId: string;
+    name: string;
+  }
+
+  const [url, setUrl] = useState<string>('');
+  const [text, setText] = useState<string>('');
+
+  const [voiceId, setVoiceId] = useState<string>("");
+  const [voiceName, setVoiceName] = useState<string>('AI Voices');
+  const [voiceArrayPosition, setVoiceArrayPosition] = useState<Voice[]>([]);
   
   async function getActiveTabUrl () {
     return new Promise((resolve, reject) => {
@@ -34,7 +44,14 @@ const App: React.FC = () => {
       <div className="flex flex-col items-center h-24">
         <Nav key={'nav'} />
         <Audio key={'audio'} />
-        <DropDown key={'dropdown'} />
+        <DropDown 
+          voiceArrayPosition={voiceArrayPosition}
+          voiceName={voiceName}
+          voiceId={voiceId}
+          setVoiceName={setVoiceName}
+          setVoiceId={setVoiceId}
+          setVoiceArrayPosition={setVoiceArrayPosition}
+        />
         <Submit key={'submit'} />
       </div>
     )

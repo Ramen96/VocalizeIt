@@ -1,10 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import '../../assets/tailwind.css';
 
-const DropDown: React.FC = () => {
-  const [voiceId, setVoiceId] = useState('');
-  const [voiceName, setVoiceName] = useState('AI Voices');
-  const [voiceArrayPosition, setVoiceArrayPosition] = useState([]);
+interface Voice {
+  voiceId: string;
+  name: string;
+}
+
+interface DropDownProps {
+  voiceArrayPosition: any;
+  voiceName: string;
+  voiceId: string;
+  
+  setVoiceName: (name: string) => void;
+  setVoiceId: (id: string) => void;
+  setVoiceArrayPosition: (voices: Voice[]) => void;
+}
+
+const DropDown: React.FC<DropDownProps> = ({
+  voiceArrayPosition,
+  voiceName,
+  voiceId,
+  setVoiceName,
+  setVoiceId,
+  setVoiceArrayPosition
+}) => {
+  // const [voiceId, setVoiceId] = useState('');
+  // const [voiceName, setVoiceName] = useState('AI Voices');
+  // const [voiceArrayPosition, setVoiceArrayPosition] = useState([]);
+
 
   useEffect(() => {
     const options = { method: 'GET' };
