@@ -42,8 +42,8 @@ const App: React.FC = () => {
 
     return(
       <div className="flex flex-col items-center h-24">
-        <Nav key={'nav'} />
-        <Audio key={'audio'} />
+        <Nav />
+        <Audio />
         <DropDown 
           voiceArrayPosition={voiceArrayPosition}
           voiceName={voiceName}
@@ -52,7 +52,10 @@ const App: React.FC = () => {
           setVoiceId={setVoiceId}
           setVoiceArrayPosition={setVoiceArrayPosition}
         />
-        <Submit key={'submit'} />
+        <Submit 
+          url={url}
+          text={text}
+        />
       </div>
     )
 }

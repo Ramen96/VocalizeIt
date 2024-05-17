@@ -6,7 +6,7 @@ interface Voice {
   name: string;
 }
 
-interface DropDownProps {
+interface StateProps {
   voiceArrayPosition: any;
   voiceName: string;
   voiceId: string;
@@ -16,7 +16,7 @@ interface DropDownProps {
   setVoiceArrayPosition: (voices: Voice[]) => void;
 }
 
-const DropDown: React.FC<DropDownProps> = ({
+const DropDown: React.FC<StateProps> = ({
   voiceArrayPosition,
   voiceName,
   voiceId,

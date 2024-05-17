@@ -30,7 +30,16 @@ function playVoice() {
       console.error('Fetch error:', error);
     });
 }
-const Submit = () => {
+
+interface StateProps {
+  url: string;
+  text: string;
+}
+
+const Submit: React.FC<StateProps> = ({
+  url,
+  text
+}) => {
   return (
     <div className="flex justify-center">
       <button onClick={playVoice} id="submit" className="ext-button postion-bottom">Submit</button>
