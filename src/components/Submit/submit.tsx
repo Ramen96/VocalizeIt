@@ -18,7 +18,7 @@ const Submit: React.FC<StateProps> = ({ setButtonClicked }) => {
         onClick={clickButton} 
         id="submit"
         className="ext-button postion-bottom flex justify-center items-center">
-        <img src={playButton} alt="play button" style={{marginLeft: "6px"}}/>
+          <img src={playButton} alt="play button" style={{marginLeft: "6px"}}/>
         </button>
     </div>
   )
