@@ -57,9 +57,6 @@ const App: React.FC = () => {
           setVoiceArrayPosition={setVoiceArrayPosition}
         />
         <Submit 
-          url={url}
-          text={text}
-          buttonClicked={buttonClicked}
           setButtonClicked={setButtonClicked}
         />
       </div>
