@@ -5,8 +5,7 @@ from dotenv import load_dotenv
 from api_request_handler import eleven_labs_tts
 
 api = os.getenv("XI_API_KEY")
-# voice_id = "21m00Tcm4TlvDq8ikWAM"
-text = "Tim Pool invented a zeppelin again" # Changing propts for testing
+text = "The first duty of every Starfleet officer is to the truth. It is the guiding principle upon which Starfleet is based." # Changing propts for testing
 
 app = Flask(__name__)
 
