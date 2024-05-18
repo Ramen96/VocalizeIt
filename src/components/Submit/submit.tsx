@@ -1,48 +1,28 @@
 import React from "react";
-import { Component } from "react";
 import '../../assets/tailwind.css';
-
-
-function playVoice() {
-  const options = {
-    method: 'POST',
-  };
-    fetch('http://127.0.0.1:5000/api/endpoint', options)
-    .then(response => response.blob())
-    .then(blob => {
-      // Create a temporary URL for the Blob
-      const blobUrl = URL.createObjectURL(blob);
-      const audio = new Audio();
-      audio.src = blobUrl;
-      
-      // Play the audio
-      audio.play();
-      
-      // Change the src of the html source tag
-      // document.getElementById("ext-audio-player").src = blobUrl;
-      // Handle errors
-      audio.addEventListener('error', function() {
-        console.error('Error playing audio.');
-      });
-      
-    })
-    .catch(error => {
-      console.error('Fetch error:', error);
-    });
-}
 
 interface StateProps {
   url: string;
   text: string;
+  buttonClicked: boolean;
+
+  setButtonClicked: (clicked: boolean) => void;
 }
 
 const Submit: React.FC<StateProps> = ({
   url,
-  text
+  text,
+  buttonClicked,
+  setButtonClicked
 }) => {
+
+  function clickButton() {
+    setButtonClicked(true);
+  }
+
   return (
     <div className="flex justify-center">
-      <button onClick={playVoice} id="submit" className="ext-button postion-bottom">Submit</button>
+      <button onClick={clickButton} id="submit" className="ext-button postion-bottom">Submit</button>
     </div>
   )
 }

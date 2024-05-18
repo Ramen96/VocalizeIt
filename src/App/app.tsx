@@ -1,6 +1,6 @@
 import React, { Component, useState, useEffect } from "react";
 import Nav from '../components/Nav/nav';
-import Audio from "../components/Audio/audio";
+import AudioPlayer from "../components/Audio/audio";
 import DropDown from "../components/Dropdown/dropdown";
 import Submit from "../components/Submit/submit";
 import '../assets/tailwind.css';
@@ -14,7 +14,7 @@ const App: React.FC = () => {
 
   const [url, setUrl] = useState<string>('');
   const [text, setText] = useState<string>('');
-
+  const [buttonClicked, setButtonClicked] = useState<boolean>(false);
   const [voiceId, setVoiceId] = useState<string>("");
   const [voiceName, setVoiceName] = useState<string>('AI Voices');
   const [voiceArrayPosition, setVoiceArrayPosition] = useState<Voice[]>([]);
@@ -42,7 +42,12 @@ const App: React.FC = () => {
     return(
       <div className="flex flex-col items-center h-24">
         <Nav />
-        <Audio />
+        <AudioPlayer
+        url={url}
+        text={text}
+        buttonClicked={buttonClicked}
+        setButtonClicked={setButtonClicked}
+        />
         <DropDown 
           voiceArrayPosition={voiceArrayPosition}
           voiceName={voiceName}
@@ -54,6 +59,8 @@ const App: React.FC = () => {
         <Submit 
           url={url}
           text={text}
+          buttonClicked={buttonClicked}
+          setButtonClicked={setButtonClicked}
         />
       </div>
     )
