@@ -43,7 +43,7 @@ const DropDown: React.FC<StateProps> = ({
   const handleOptionClick = (voice) => {
     setVoiceName(voice.name);
     setVoiceId(voice.voice_id);
-    setIsDropdownOpen(false); // Close the dropdown after selecting an option
+    setIsDropdownOpen(false); 
   };
 
   return (
