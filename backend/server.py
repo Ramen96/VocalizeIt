@@ -5,10 +5,8 @@ from dotenv import load_dotenv
 from api_request_handler import eleven_labs_tts
 
 api = os.getenv("XI_API_KEY")
-# text = "The first duty of every Starfleet officer is to the truth. It is the guiding principle upon which Starfleet is based." # Changing propts for testing
 
 app = Flask(__name__)
-
 
 @app.route("/api/endpoint", methods=["POST"])
 def call_api():
