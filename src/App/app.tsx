@@ -3,6 +3,7 @@ import Nav from '../components/Nav/nav';
 import AudioPlayer from "../components/Audio/audio";
 import DropDown from "../components/Dropdown/dropdown";
 import Submit from "../components/Submit/submit";
+import Text from "../components/TextInput/text";
 import '../assets/tailwind.css';
 
 const App: React.FC = () => {
@@ -56,6 +57,10 @@ const App: React.FC = () => {
           setVoiceName={setVoiceName}
           setVoiceId={setVoiceId}
           setVoiceArrayPosition={setVoiceArrayPosition}
+        />
+        <Text
+        text={text}
+        setText={setText}
         />
         <Submit 
           setButtonClicked={setButtonClicked}
