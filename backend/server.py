@@ -6,7 +6,7 @@ from api_request_handler import eleven_labs_tts
 
 api = os.getenv("XI_API_KEY")
 voice_id = "21m00Tcm4TlvDq8ikWAM"
-text = "Tim Pool invented a zeppelin" # Changing propts for testing
+text = "Tim Pool invented a zeppelin again" # Changing propts for testing
 
 app = Flask(__name__)
 
