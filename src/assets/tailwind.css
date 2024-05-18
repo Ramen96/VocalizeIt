@@ -30,14 +30,14 @@ body {
 
 
 .ext-button {
-    width: 125px;
+    width: 75px;
     height: 50px;
     background-color: #13cc7c;
     border-color: #13cc7c;
     padding: 10px 20px;
     box-shadow: none;
     border: none;
-    border-radius: 15px;
+    border-radius: 100px;
     color: #000000;
     font-family: "Courier New", Courier, monospace;
     font-weight: 200;
