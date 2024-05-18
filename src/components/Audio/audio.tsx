@@ -5,15 +5,26 @@ interface StateProps {
   url: string;
   text: string;
   buttonClicked: boolean;
+  voiceId: string;
 
   setButtonClicked: (clicked: boolean) => void;
 }
 
-const AudioPlayer: React.FC<StateProps> = ({ buttonClicked, setButtonClicked }) => {
+const AudioPlayer: React.FC<StateProps> = ({ 
+  buttonClicked,
+  setButtonClicked,
+  voiceId
+ }) => {
 
   function playVoice() {
     const options = {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        voiceId: voiceId
+      })
     };
       fetch('http://127.0.0.1:5000/api/endpoint', options)
       .then(response => response.blob())

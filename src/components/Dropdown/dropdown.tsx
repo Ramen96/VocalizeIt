@@ -19,7 +19,6 @@ interface StateProps {
 const DropDown: React.FC<StateProps> = ({
   voiceArrayPosition,
   voiceName,
-  voiceId,
   setVoiceName,
   setVoiceId,
   setVoiceArrayPosition

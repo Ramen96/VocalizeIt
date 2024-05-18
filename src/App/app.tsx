@@ -43,6 +43,7 @@ const App: React.FC = () => {
       <div className="flex flex-col items-center h-24">
         <Nav />
         <AudioPlayer
+        voiceId={voiceId}
         url={url}
         text={text}
         buttonClicked={buttonClicked}
