@@ -5,8 +5,6 @@ import DropDown from "../components/Dropdown/dropdown";
 import Submit from "../components/Submit/submit";
 import '../assets/tailwind.css';
 
-
-
 const App: React.FC = () => {
 
   interface Voice {
@@ -21,7 +19,7 @@ const App: React.FC = () => {
   const [voiceName, setVoiceName] = useState<string>('AI Voices');
   const [voiceArrayPosition, setVoiceArrayPosition] = useState<Voice[]>([]);
   
-  async function getActiveTabUrl () {
+  async function getActiveTabUrl() {
     return new Promise((resolve, reject) => {
       chrome.tabs.query({ active: true, currentWindow: true }, (array) => {
         array && array.length > 0 ?
@@ -33,8 +31,10 @@ const App: React.FC = () => {
   
   (async () => { 
     try {        
-      const url = await getActiveTabUrl();
-      console.log("URL: ", url);
+      const urlFromFunc = await getActiveTabUrl();
+      console.log("Url is a:",typeof(urlFromFunc));
+      // setUrl(urlFromFunc) // This line dose not work?
+      setUrl(JSON.stringify(urlFromFunc)); // but ths line dose work?
     } catch (error) {
       console.error(error);
     }
