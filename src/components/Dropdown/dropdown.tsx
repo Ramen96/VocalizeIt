@@ -31,7 +31,6 @@ const DropDown: React.FC<StateProps> = ({
       .then(response => response.json())
       .then(data => {
         setVoiceArrayPosition(data.voices);
-        console.log(data)
       })
       .catch(err => console.error(err));
   }, []);
