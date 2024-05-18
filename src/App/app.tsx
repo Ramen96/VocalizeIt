@@ -32,9 +32,8 @@ const App: React.FC = () => {
   (async () => { 
     try {        
       const urlFromFunc = await getActiveTabUrl();
-      console.log("Url is a:",typeof(urlFromFunc));
-      // setUrl(urlFromFunc) // This line dose not work?
-      setUrl(JSON.stringify(urlFromFunc)); // but ths line dose work?
+      let stringUrl = urlFromFunc.toString();
+      setUrl(stringUrl);
     } catch (error) {
       console.error(error);
     }
