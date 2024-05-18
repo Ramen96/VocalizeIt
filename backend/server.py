@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from api_request_handler import eleven_labs_tts
 
 api = os.getenv("XI_API_KEY")
-text = "The first duty of every Starfleet officer is to the truth. It is the guiding principle upon which Starfleet is based." # Changing propts for testing
+# text = "The first duty of every Starfleet officer is to the truth. It is the guiding principle upon which Starfleet is based." # Changing propts for testing
 
 app = Flask(__name__)
 
@@ -19,7 +19,11 @@ def call_api():
     return jsonify({"error": "Invalid JSON"}), 400
   
   voice_id = data.get('voiceId')
+  text = data.get('text')
   
+  if not text:
+    return jsonify({"error": "input text is required"}), 400
+
   if not voice_id:
     return jsonify({"error": "voice_id is required"}), 400
 

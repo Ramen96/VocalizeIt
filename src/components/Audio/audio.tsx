@@ -12,8 +12,9 @@ interface StateProps {
 
 const AudioPlayer: React.FC<StateProps> = ({ 
   buttonClicked,
-  setButtonClicked,
-  voiceId
+  voiceId,
+  text,
+  setButtonClicked
  }) => {
 
   function playVoice() {
@@ -23,7 +24,8 @@ const AudioPlayer: React.FC<StateProps> = ({
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        voiceId: voiceId
+        voiceId: voiceId,
+        text: text
       })
     };
       fetch('http://127.0.0.1:5000/api/endpoint', options)
