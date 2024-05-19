@@ -9,7 +9,7 @@ interface StateProps {
 const Text: React.FC<StateProps> = ({ text }) => {
 
   return (
-    <div className="w-full max-w-lg p-4 rounded shadow-lg">
+    <div className="w-full max-w-lg p-4 bg-transparent">
       <textarea
         id="large-textarea"
         placeholder="Paste or type something..."
