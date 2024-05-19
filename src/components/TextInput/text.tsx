@@ -9,8 +9,13 @@ interface StateProps {
 const Text: React.FC<StateProps> = ({ text }) => {
 
   return (
-    <div className="flex justify-center">
-      <input type="email" id="helper-text" aria-describedby="helper-text-explanation" className="text-sm m-5 w-80 h-56 overflow-y-auto rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-zinc-950 border-gray-200 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Paste some text or type something..."></input>
+    <div className="w-full max-w-lg p-4 rounded shadow-lg">
+      <textarea
+        id="large-textarea"
+        placeholder="Paste or type something..."
+        style={{marginTop: "5px"}}
+        className="w-full h-56 p-2 border bg-neutral-700 bg-opacity-30 text-base rounded-xl font-mono border-gray-300 text-gray-300 resize-none overflow-auto focus:outline-none focus:ring-1 focus:ring-gray-300"
+      ></textarea>
     </div>
   )
 }
