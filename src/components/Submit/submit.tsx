@@ -5,12 +5,17 @@ const downloadButton = require('../../static/icons8-download-48.png');
 
 interface StateProps {
   setButtonClicked: (clicked: boolean) => void;
+  setDownloadClicked: (clicked: boolean) => void;
 }
 
-const Submit: React.FC<StateProps> = ({ setButtonClicked }) => {
+const Submit: React.FC<StateProps> = ({ setButtonClicked, setDownloadClicked }) => {
 
   function clickButton() {
     setButtonClicked(true);
+  }
+
+  function clickDownload() {
+    setDownloadClicked(true);
   }
 
   return (
@@ -18,6 +23,7 @@ const Submit: React.FC<StateProps> = ({ setButtonClicked }) => {
       <div className="flex justify-center w-80">
         <button 
           id="saveAudio"
+          onClick={clickDownload}
           style={{width: "80px"}}
           className="ext-button position-left flex justify-center items-center">
             <img src={downloadButton} alt="download button" className="h-8 w-8" style={{marginBottom: "5px"}} />

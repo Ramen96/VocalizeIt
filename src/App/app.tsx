@@ -19,6 +19,7 @@ const App: React.FC = () => {
   const [voiceId, setVoiceId] = useState<string>("");
   const [voiceName, setVoiceName] = useState<string>('AI Voices');
   const [voiceArrayPosition, setVoiceArrayPosition] = useState<Voice[]>([]);
+  const [donwloadClicked, setDownloadClicked] = useState<boolean>(false);
   
   async function getActiveTabUrl() {
     return new Promise((resolve, reject) => {
@@ -48,7 +49,9 @@ const App: React.FC = () => {
         url={url}
         text={text}
         buttonClicked={buttonClicked}
+        donwloadClicked={donwloadClicked}
         setButtonClicked={setButtonClicked}
+        setDownloadClicked={setDownloadClicked}
         />
         <DropDown 
           voiceArrayPosition={voiceArrayPosition}
@@ -63,6 +66,7 @@ const App: React.FC = () => {
         />
         <Submit 
           setButtonClicked={setButtonClicked}
+          setDownloadClicked={setDownloadClicked}
         />
       </div>
     )

@@ -4,9 +4,11 @@ import '../../assets/tailwind.css';
 interface StateProps {
   url: string;
   text: string;
-  buttonClicked: boolean;
   voiceId: string;
-
+  buttonClicked: boolean;
+  donwloadClicked: boolean;
+  
+  setDownloadClicked: (clicked: boolean) => void;
   setButtonClicked: (clicked: boolean) => void;
 }
 
@@ -14,7 +16,9 @@ const AudioPlayer: React.FC<StateProps> = ({
   buttonClicked,
   voiceId,
   text,
-  setButtonClicked
+  donwloadClicked,
+  setButtonClicked,
+  setDownloadClicked
  }) => {
 
   function playVoice() {
@@ -51,10 +55,22 @@ const AudioPlayer: React.FC<StateProps> = ({
       });
   }
 
+  function downloadMp3(url) {
+    chrome.downloads.download({
+      url
+    })
+  }
+
   useEffect(() => {
     if (buttonClicked === true) {
       playVoice();
       setButtonClicked(false);
+    }
+    if (donwloadClicked === true) {
+      const blobUrl = document.getElementById('ext-audio-player') as HTMLAudioElement;
+      const src = blobUrl.src;
+      downloadMp3(src);
+      setDownloadClicked(false);
     }
   })
 
