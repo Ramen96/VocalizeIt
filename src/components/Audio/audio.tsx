@@ -7,9 +7,11 @@ interface StateProps {
   voiceId: string;
   buttonClicked: boolean;
   donwloadClicked: boolean;
+  downloadableMp3: boolean;
   
   setDownloadClicked: (clicked: boolean) => void;
   setButtonClicked: (clicked: boolean) => void;
+  setDownloadableMp3: (clicked: boolean) => void;
 }
 
 const AudioPlayer: React.FC<StateProps> = ({ 
@@ -17,8 +19,10 @@ const AudioPlayer: React.FC<StateProps> = ({
   voiceId,
   text,
   donwloadClicked,
+  downloadableMp3,
   setButtonClicked,
-  setDownloadClicked
+  setDownloadClicked,
+  setDownloadableMp3
  }) => {
 
   function playVoice() {
@@ -44,6 +48,7 @@ const AudioPlayer: React.FC<StateProps> = ({
         
         const audioElement = document.getElementById('ext-audio-player') as HTMLAudioElement;
         audioElement.src = blobUrl;
+        setDownloadableMp3(true);
 
         audio.addEventListener('error', function() {
           console.error('Error playing audio.');
@@ -63,14 +68,24 @@ const AudioPlayer: React.FC<StateProps> = ({
 
   useEffect(() => {
     if (buttonClicked === true) {
-      playVoice();
-      setButtonClicked(false);
+      if (text === '') {
+        alert("Input text is required.");
+        setButtonClicked(false);
+      } else {
+        playVoice();
+        setButtonClicked(false);
+      }
     }
+    const blobUrl = document.getElementById('ext-audio-player') as HTMLAudioElement;
+    const src = blobUrl.src;
     if (donwloadClicked === true) {
-      const blobUrl = document.getElementById('ext-audio-player') as HTMLAudioElement;
-      const src = blobUrl.src;
-      downloadMp3(src);
-      setDownloadClicked(false);
+      if (downloadableMp3 === false) {
+        alert('No audio to download!')
+        setDownloadClicked(false);
+      } else {
+        downloadMp3(src);
+        setDownloadClicked(false);
+      }
     }
   })
 

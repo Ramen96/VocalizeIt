@@ -20,6 +20,7 @@ const App: React.FC = () => {
   const [voiceName, setVoiceName] = useState<string>('AI Voices');
   const [voiceArrayPosition, setVoiceArrayPosition] = useState<Voice[]>([]);
   const [donwloadClicked, setDownloadClicked] = useState<boolean>(false);
+  const [downloadableMp3, setDownloadableMp3] = useState<boolean>(false);
   
   async function getActiveTabUrl() {
     return new Promise((resolve, reject) => {
@@ -52,6 +53,8 @@ const App: React.FC = () => {
         donwloadClicked={donwloadClicked}
         setButtonClicked={setButtonClicked}
         setDownloadClicked={setDownloadClicked}
+        downloadableMp3={downloadableMp3}
+        setDownloadableMp3={setDownloadableMp3}
         />
         <DropDown 
           voiceArrayPosition={voiceArrayPosition}
