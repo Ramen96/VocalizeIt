@@ -59,7 +59,6 @@ const App: React.FC = () => {
           setVoiceArrayPosition={setVoiceArrayPosition}
         />
         <Text
-        text={text}
         setText={setText}
         />
         <Submit 
