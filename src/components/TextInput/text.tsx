@@ -14,7 +14,7 @@ const Text: React.FC<StateProps> = ({ text }) => {
         id="large-textarea"
         placeholder="Paste or type something..."
         style={{marginTop: "5px"}}
-        className="w-full h-56 p-3 border bg-neutral-700 bg-opacity-30 text-base rounded-xl font-mono border-gray-300 text-gray-300 resize-none overflow-auto focus:outline-none focus:ring-0 focus:ring-gray-300"
+        className="w-full h-56 p-3 border bg-neutral-700 bg-opacity-30 text-base rounded-xl font-mono border-gray-200 text-gray-300 resize-none overflow-auto focus:outline-none focus:ring-0 focus:border-gray-100 focus:ring-gray-300"
       ></textarea>
     </div>
   )
