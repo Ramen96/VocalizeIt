@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState } from "react";
 import Nav from '../components/Nav/nav';
 import AudioPlayer from "../components/Audio/audio";
 import DropDown from "../components/Dropdown/dropdown";
