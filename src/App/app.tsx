@@ -16,7 +16,7 @@ const App: React.FC = () => {
   const [url, setUrl] = useState<string>('');
   const [text, setText] = useState<string>('');
   const [buttonClicked, setButtonClicked] = useState<boolean>(false);
-  const [voiceId, setVoiceId] = useState<string>("");
+  const [voiceId, setVoiceId] = useState<string>("TX3LPaxmHKxFdv7VOQHJ");
   const [voiceName, setVoiceName] = useState<string>('AI Voices');
   const [voiceArrayPosition, setVoiceArrayPosition] = useState<Voice[]>([]);
   const [donwloadClicked, setDownloadClicked] = useState<boolean>(false);
