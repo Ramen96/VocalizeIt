@@ -21,7 +21,7 @@ const App: React.FC = () => {
   const [voiceArrayPosition, setVoiceArrayPosition] = useState<Voice[]>([]);
   const [donwloadClicked, setDownloadClicked] = useState<boolean>(false);
   const [downloadableMp3, setDownloadableMp3] = useState<boolean>(false);
-  const [generating, setGenerating] = useState<boolean>(true);
+  const [generating, setGenerating] = useState<boolean>(false);
   
   async function getActiveTabUrl() {
     return new Promise((resolve, reject) => {
