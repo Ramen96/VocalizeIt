@@ -8,7 +8,9 @@ interface StateProps {
   buttonClicked: boolean;
   donwloadClicked: boolean;
   downloadableMp3: boolean;
+  generating: boolean;
   
+  setGenerating: (clicked: boolean) => void;
   setDownloadClicked: (clicked: boolean) => void;
   setButtonClicked: (clicked: boolean) => void;
   setDownloadableMp3: (clicked: boolean) => void;
@@ -22,10 +24,12 @@ const AudioPlayer: React.FC<StateProps> = ({
   downloadableMp3,
   setButtonClicked,
   setDownloadClicked,
-  setDownloadableMp3
+  setDownloadableMp3,
+  setGenerating
  }) => {
 
   function playVoice() {
+    setGenerating(true);
     const options = {
       method: 'POST',
       headers: {
@@ -49,6 +53,7 @@ const AudioPlayer: React.FC<StateProps> = ({
         const audioElement = document.getElementById('ext-audio-player') as HTMLAudioElement;
         audioElement.src = blobUrl;
         setDownloadableMp3(true);
+        setGenerating(false);
 
         audio.addEventListener('error', function() {
           console.error('Error playing audio.');

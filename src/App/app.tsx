@@ -21,6 +21,7 @@ const App: React.FC = () => {
   const [voiceArrayPosition, setVoiceArrayPosition] = useState<Voice[]>([]);
   const [donwloadClicked, setDownloadClicked] = useState<boolean>(false);
   const [downloadableMp3, setDownloadableMp3] = useState<boolean>(false);
+  const [generating, setGenerating] = useState<boolean>(true);
   
   async function getActiveTabUrl() {
     return new Promise((resolve, reject) => {
@@ -49,12 +50,14 @@ const App: React.FC = () => {
         voiceId={voiceId}
         url={url}
         text={text}
+        generating={generating}
         buttonClicked={buttonClicked}
         donwloadClicked={donwloadClicked}
         setButtonClicked={setButtonClicked}
         setDownloadClicked={setDownloadClicked}
         downloadableMp3={downloadableMp3}
         setDownloadableMp3={setDownloadableMp3}
+        setGenerating={setGenerating}
         />
         <DropDown 
           voiceArrayPosition={voiceArrayPosition}
@@ -66,6 +69,7 @@ const App: React.FC = () => {
         />
         <Text
         setText={setText}
+        generating={generating}
         />
         <Submit 
           setButtonClicked={setButtonClicked}
