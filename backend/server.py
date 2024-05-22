@@ -28,10 +28,8 @@ def call_api():
     print('need voice id')
     return jsonify({"error": "voice_id is required"}), 400
 
-  eleven_labs_tts(api, voice_id, text)
-  return send_file("./output/output.mp3")
+  return eleven_labs_tts(api, voice_id, text)
   
-
 
 if __name__ == '__main__':
   app.run(debug=True)
