@@ -14,7 +14,7 @@ const App: React.FC = () => {
   }
 
   const [url, setUrl] = useState<string>('');
-  const [text, setText] = useState<string>('');
+  const [text, setText] = useState<string>('Hello there, this extension uses the eleven labs API to create human sounding voices. This is the default voice Liam. You can paste or type anything you like to call the API and generate an MP3 file which you can then download.');
   const [buttonClicked, setButtonClicked] = useState<boolean>(false);
   const [voiceId, setVoiceId] = useState<string>("TX3LPaxmHKxFdv7VOQHJ");
   const [voiceName, setVoiceName] = useState<string>('AI Voices');
