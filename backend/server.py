@@ -1,6 +1,5 @@
 import os
-# import request
-from flask import Flask, send_file, request, jsonify
+from flask import Flask, request, jsonify
 from dotenv import load_dotenv
 from api_request_handler import eleven_labs_tts
 

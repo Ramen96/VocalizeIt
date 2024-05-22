@@ -1,7 +1,4 @@
-# Import necessary libraries
 import requests
-import json 
-import os.path
 import io
 from flask import Response
 
