@@ -13,6 +13,7 @@ CORS(app)
 def call_api():
 
   data = request.get_json()
+  print(data)
 
   if data is None:
     print('need data')
