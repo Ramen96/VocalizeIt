@@ -3,7 +3,7 @@ import io
 from flask import Response
 
 
-def eleven_labs_tts(xi_api_key, voice_id, text_to_speak, CHUNK_SIZE=1024):
+def eleven_labs_tts(voice_id, text_to_speak, CHUNK_SIZE=1024):
     tts_url = f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}/stream"
 
     headers = {
