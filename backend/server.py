@@ -1,11 +1,13 @@
 import os
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from dotenv import load_dotenv
 from api_request_handler import eleven_labs_tts
 
 api = os.getenv("XI_API_KEY")
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route("/api/endpoint", methods=["POST"])
 def call_api():
