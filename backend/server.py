@@ -4,7 +4,7 @@ from flask_cors import CORS
 from dotenv import load_dotenv
 from api_request_handler import eleven_labs_tts
 
-# api = os.getenv("XI_API_KEY")
+api = os.getenv("XI_API_KEY")
 
 app = Flask(__name__)
 CORS(app)
@@ -30,9 +30,8 @@ def call_api():
     print('need voice id')
     return jsonify({"error": "voice_id is required"}), 400
 
-  return eleven_labs_tts(voice_id, text)
+  return eleven_labs_tts(api, voice_id, text)
   
 
 if __name__ == '__main__':
-  app.run(host='0.0.0.0', port=5000)
-  
+  app.run(host='0.0.0.0')
