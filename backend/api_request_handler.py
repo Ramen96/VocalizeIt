@@ -8,7 +8,7 @@ def eleven_labs_tts(xi_api_key, voice_id, text_to_speak, CHUNK_SIZE=1024):
 
     headers = {
         "Accept": "application/json",
-        "xi-api-key": xi_api_key
+        "xi-api-key": "4dbe5f82facef5243c9988147603b398"
     }
 
     data = {
