@@ -52,5 +52,3 @@ def tts_route():
     
     return eleven_labs_tts(api_key, voice_id, text_to_speak)
 
-if __name__ == '__main__':
-    app.run(debug=True)
