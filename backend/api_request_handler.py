@@ -3,12 +3,12 @@ import io
 from flask import Response
 
 
-def eleven_labs_tts(api_key, voice_id, text_to_speak, CHUNK_SIZE=1024):
+def eleven_labs_tts(voice_id, text_to_speak, CHUNK_SIZE=1024):
     tts_url = f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}/stream"
 
     headers = {
         "Accept": "application/json",
-        "xi-api-key": api_key
+        "xi-api-key": "4dbe5f82facef5243c9988147603b398"
     }
 
     data = {
