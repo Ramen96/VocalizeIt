@@ -4,6 +4,7 @@ import AudioPlayer from "../components/Audio/audio";
 import DropDown from "../components/Dropdown/dropdown";
 import Submit from "../components/Submit/submit";
 import Login from "../components/Login/login";
+import SignUp from "../components/SignUp/signUp";
 import Text from "../components/TextInput/text";
 import '../assets/tailwind.css';
 
@@ -23,7 +24,7 @@ const App: React.FC = () => {
   const [donwloadClicked, setDownloadClicked] = useState<boolean>(false);
   const [downloadableMp3, setDownloadableMp3] = useState<boolean>(false);
   const [generating, setGenerating] = useState<boolean>(false);
-  const [isSignedIn, setIsSignedIn,] = useState<boolean>(false);
+  const [signInState, setSignInState,] = useState<string>('login');
   
   async function getActiveTabUrl() {
     return new Promise((resolve, reject) => {
@@ -45,15 +46,27 @@ const App: React.FC = () => {
     }
   })();
 
-  if (isSignedIn === false) {
+  if (signInState === 'login') {
     return(
       <div className="flex flex-col items-center h-24">
         <Nav
-          isSignedIn={isSignedIn} 
-          setIsSignedIn={setIsSignedIn}
+          signInState={signInState} 
+          setSignInState={setSignInState}
         />
         <Login
-          setIsSignedIn={setIsSignedIn}
+          setSignInState={setSignInState}
+        />
+      </div>
+    )
+  } else if (signInState === 'sign up') {
+    return (
+      <div className="flex flex-col items-center h-24">
+        <Nav
+        setSignInState={setSignInState}
+        signInState={signInState}
+       />
+        <SignUp
+           setSignInState={setSignInState}
         />
       </div>
     )
@@ -61,8 +74,8 @@ const App: React.FC = () => {
     return (
       <div className="flex flex-col items-center h-24">
        <Nav
-        setIsSignedIn={setIsSignedIn}
-        isSignedIn={isSignedIn}
+        setSignInState={setSignInState}
+        signInState={signInState}
        />
        <AudioPlayer
          voiceId={voiceId}

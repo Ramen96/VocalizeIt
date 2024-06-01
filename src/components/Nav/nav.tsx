@@ -4,13 +4,13 @@ import '../../assets/tailwind.css';
 import './fonts.css'
 
 interface StateProps {
-  isSignedIn: boolean;
+  signInState: string;
 
-  setIsSignedIn: (clicked: boolean) => void;
+  setSignInState: (clicked: string) => void;
 }
 
 
-const Nav: React.FC<StateProps> = ({ setIsSignedIn, isSignedIn }) => {
+const Nav: React.FC<StateProps> = ({ setSignInState, signInState }) => {
 
   return(
     <div className="flex items-center justify-between w-full">
@@ -19,8 +19,8 @@ const Nav: React.FC<StateProps> = ({ setIsSignedIn, isSignedIn }) => {
       </div>
       <div className="flex items-center justify-end w-full mr-5">
         <Logout 
-          isSignedIn={isSignedIn}
-          setIsSignedIn={setIsSignedIn} 
+          signInState={signInState}
+          setSignInState={setSignInState} 
         />
       </div>
     </div>
