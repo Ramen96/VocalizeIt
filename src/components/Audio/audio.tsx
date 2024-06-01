@@ -33,14 +33,21 @@ const AudioPlayer: React.FC<StateProps> = ({
     const options = {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        "xi-api-key": "YOUR_API_KEY"
       },
       body: JSON.stringify({
-        voiceId: voiceId,
-        text: text
+        text: text,
+        model_id: "eleven_multilingual_v1",
+        "voice_settings": {
+            "stability": 0.5,
+            "similarity_boost": 0.8,
+            "style": 0.0,
+            "use_speaker_boost": true
+        }
       })
     };
-      fetch("https://vocalizeit-6dbd.onrender.com/api/endpoint", options)
+      fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceId}/stream`, options)
       .then(response => response.blob())
       .then(blob => {
 

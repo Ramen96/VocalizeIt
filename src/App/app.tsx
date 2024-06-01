@@ -3,6 +3,7 @@ import Nav from '../components/Nav/nav';
 import AudioPlayer from "../components/Audio/audio";
 import DropDown from "../components/Dropdown/dropdown";
 import Submit from "../components/Submit/submit";
+import Login from "../components/Login/login";
 import Text from "../components/TextInput/text";
 import '../assets/tailwind.css';
 
@@ -22,6 +23,7 @@ const App: React.FC = () => {
   const [donwloadClicked, setDownloadClicked] = useState<boolean>(false);
   const [downloadableMp3, setDownloadableMp3] = useState<boolean>(false);
   const [generating, setGenerating] = useState<boolean>(false);
+  const [isSignedIn, setIsSignedIn,] = useState<boolean>(false);
   
   async function getActiveTabUrl() {
     return new Promise((resolve, reject) => {
@@ -43,40 +45,51 @@ const App: React.FC = () => {
     }
   })();
 
+  if (isSignedIn === false) {
     return(
       <div className="flex flex-col items-center h-24">
         <Nav />
-        <AudioPlayer
-          voiceId={voiceId}
-          url={url}
-          text={text}
-          generating={generating}
-          buttonClicked={buttonClicked}
-          donwloadClicked={donwloadClicked}
-          setButtonClicked={setButtonClicked}
-          setDownloadClicked={setDownloadClicked}
-          downloadableMp3={downloadableMp3}
-          setDownloadableMp3={setDownloadableMp3}
-          setGenerating={setGenerating}
-        />
-        <DropDown 
-          voiceArrayPosition={voiceArrayPosition}
-          voiceName={voiceName}
-          voiceId={voiceId}
-          setVoiceName={setVoiceName}
-          setVoiceId={setVoiceId}
-          setVoiceArrayPosition={setVoiceArrayPosition}
-        />
-        <Text
-          setText={setText}
-          generating={generating}
-        />
-        <Submit 
-          setButtonClicked={setButtonClicked}
-          setDownloadClicked={setDownloadClicked}
+        <Login
+          setIsSignedIn={setIsSignedIn}
         />
       </div>
     )
+  } else {
+    return (
+      <div className="flex flex-col items-center h-24">
+       <Nav />
+       <AudioPlayer
+         voiceId={voiceId}
+         url={url}
+         text={text}
+         generating={generating}
+         buttonClicked={buttonClicked}
+         donwloadClicked={donwloadClicked}
+         setButtonClicked={setButtonClicked}
+         setDownloadClicked={setDownloadClicked}
+         downloadableMp3={downloadableMp3}
+         setDownloadableMp3={setDownloadableMp3}
+         setGenerating={setGenerating}
+       />
+       <DropDown 
+         voiceArrayPosition={voiceArrayPosition}
+         voiceName={voiceName}
+         voiceId={voiceId}
+         setVoiceName={setVoiceName}
+         setVoiceId={setVoiceId}
+         setVoiceArrayPosition={setVoiceArrayPosition}
+       />
+       <Text
+         setText={setText}
+         generating={generating}
+       />
+       <Submit 
+         setButtonClicked={setButtonClicked}
+         setDownloadClicked={setDownloadClicked}
+       />
+     </div>
+    )
+  }
 }
 
 export default App;

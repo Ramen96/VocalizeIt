@@ -4,10 +4,11 @@ from flask import Response
 
 
 def eleven_labs_tts(xi_api_key, voice_id, text_to_speak, CHUNK_SIZE=1024):
-    tts_url = f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}/stream"
+    tts_url = f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}"
 
     headers = {
-        "Accept": "application/json",
+        "Accept": "audio/mpeg",
+        "Content-Type": "application/json",
         "xi-api-key": xi_api_key
     }
 
@@ -22,7 +23,7 @@ def eleven_labs_tts(xi_api_key, voice_id, text_to_speak, CHUNK_SIZE=1024):
         }
     }
 
-    response = requests.post(tts_url, headers=headers, json=data, stream=True)
+    response = requests.post(tts_url, headers=headers, json=data)
     
     if response.ok:
         audio_buffer = io.BytesIO(response.content)
