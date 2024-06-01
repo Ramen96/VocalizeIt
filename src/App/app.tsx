@@ -48,7 +48,10 @@ const App: React.FC = () => {
   if (isSignedIn === false) {
     return(
       <div className="flex flex-col items-center h-24">
-        <Nav />
+        <Nav
+          isSignedIn={isSignedIn} 
+          setIsSignedIn={setIsSignedIn}
+        />
         <Login
           setIsSignedIn={setIsSignedIn}
         />
@@ -57,7 +60,10 @@ const App: React.FC = () => {
   } else {
     return (
       <div className="flex flex-col items-center h-24">
-       <Nav />
+       <Nav
+        setIsSignedIn={setIsSignedIn}
+        isSignedIn={isSignedIn}
+       />
        <AudioPlayer
          voiceId={voiceId}
          url={url}

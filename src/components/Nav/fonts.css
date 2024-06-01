@@ -1,0 +1,8 @@
+@font-face {
+  font-family: 'press2start';
+  src: url('../../static/PressStart2P-Regular.ttf') format('truetype');
+}
+
+.font-press2start {
+  font-family: 'press2start', sans-serif; /* Fallback to sans-serif */
+}

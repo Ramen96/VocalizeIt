@@ -1,4 +1,5 @@
 import React from "react";
+import '../Nav/fonts.css'
 import '../../assets/tailwind.css';
 
 interface StateProps {
@@ -16,16 +17,16 @@ const Login: React.FC<StateProps> = ({ setIsSignedIn }) => {
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
           <div className="w-full rounded-3xl shadow border md:mt-0 sm:max-w-md xl:p-0 bg-zinc-800 bg-opacity-50 border-gray-400">
               <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-                  <h1 className="text-xl font-bold leading-tight tracking-tight md:text-2xl text-white">
+                  <h1 className="font-bold text-xl tracking-widest font-press2start leading-tight text-white">
                       Sign in to your account
                   </h1>
                   <form className="space-y-4 md:space-y-6" action="#">
                       <div>
-                          <label htmlFor="email" className="block mb-2 text-sm font-medium text-white">Your email</label>
+                          <label htmlFor="email" className="block mb-2 tracking-widest font-thin font-press2start text-xs text-white">Your email</label>
                           <input type="email" name="email" id="email" className="border sm:text-sm rounded-lg block w-full p-2.5 bg-zinc-400 bg-opacity-25 border-gray-600 placeholder-gray-400 text-white" placeholder="youremail@email.com" required></input>
                       </div>
                       <div>
-                          <label htmlFor="password" className="block mb-2 text-sm font-medium text-white">Password</label>
+                          <label htmlFor="password" className="block mb-2 tracking-widest font-thin font-press2start text-xs text-white">Password</label>
                           <input type="password" name="password" id="password" placeholder="••••••••" className="border sm:text-sm rounded-lg block w-full p-2.5 bg-zinc-400 bg-opacity-25 border-gray-600 placeholder-gray-400 text-white" required></input>
                       </div>
                       <div className="flex items-center justify-between">
