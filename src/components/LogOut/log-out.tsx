@@ -1,6 +1,5 @@
 import React from "react";
 import '../../assets/tailwind.css';
-import SignUp from "../SignUp/signUp";
 
 interface StateProps {
   signInState: string;
