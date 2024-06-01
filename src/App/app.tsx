@@ -47,17 +47,17 @@ const App: React.FC = () => {
       <div className="flex flex-col items-center h-24">
         <Nav />
         <AudioPlayer
-        voiceId={voiceId}
-        url={url}
-        text={text}
-        generating={generating}
-        buttonClicked={buttonClicked}
-        donwloadClicked={donwloadClicked}
-        setButtonClicked={setButtonClicked}
-        setDownloadClicked={setDownloadClicked}
-        downloadableMp3={downloadableMp3}
-        setDownloadableMp3={setDownloadableMp3}
-        setGenerating={setGenerating}
+          voiceId={voiceId}
+          url={url}
+          text={text}
+          generating={generating}
+          buttonClicked={buttonClicked}
+          donwloadClicked={donwloadClicked}
+          setButtonClicked={setButtonClicked}
+          setDownloadClicked={setDownloadClicked}
+          downloadableMp3={downloadableMp3}
+          setDownloadableMp3={setDownloadableMp3}
+          setGenerating={setGenerating}
         />
         <DropDown 
           voiceArrayPosition={voiceArrayPosition}
@@ -68,8 +68,8 @@ const App: React.FC = () => {
           setVoiceArrayPosition={setVoiceArrayPosition}
         />
         <Text
-        setText={setText}
-        generating={generating}
+          setText={setText}
+          generating={generating}
         />
         <Submit 
           setButtonClicked={setButtonClicked}
