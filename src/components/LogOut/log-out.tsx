@@ -24,19 +24,19 @@ const Logout: React.FC<StateProps> = ({ setSignInState, signInState }) => {
   if (signInState === 'home') {
     return (
       <button onClick={logOut} className="h-10 w-20 bg-green-600 rounded-xl flex flex-col items-center justify-center">
-        <p className="text-gray-100">Log Out</p>
+        <p className="text-gray-100 font-semibold">Log Out</p>
       </button>
     )
   } else if (signInState === 'login'){ 
     return (
       <button onClick={singUp} className="h-10 w-20 bg-green-600 rounded-xl flex flex-col items-center justify-center">
-        <p className="text-gray-100">Sign up</p>
+        <p className="text-gray-100 font-semibold">Sign up</p>
       </button>
     )
   } else {
     return(
       <button onClick={login} className="h-10 w-20 bg-green-600 rounded-xl flex flex-col items-center justify-center">
-        <p className="text-gray-100">Login</p>
+        <p className="text-gray-100 font-semibold">Login</p>
       </button>
     )
   }

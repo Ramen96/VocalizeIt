@@ -45,7 +45,7 @@ const Login: React.FC<StateProps> = ({ setSignInState }) => {
                           </div>
                           <a href="#" className="text-sm font-medium hover:underline text-gray-300">Forgot password?</a>
                       </div>
-                      <button type="submit" onClick={setSignInStateTrue} className="w-full text-white bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sign in</button>
+                      <button type="submit" onClick={setSignInStateTrue} className="w-full text-white bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-600 rounded-lg text-sm px-5 py-2.5 text-center font-semibold">Sign in</button>
                       <div className="flex items-center justify-start">
                         <p className="text-sm font-light text-gray-100">
                             Don’t have an account yet?
