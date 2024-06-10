@@ -30,14 +30,18 @@ const SignUp: React.FC<StateProps> = ({ setSignInState }) => {
                           <input type="email" name="email" id="email" className="border sm:text-sm rounded-lg block w-full p-2.5 bg-zinc-400 bg-opacity-25 border-gray-600 placeholder-gray-400 text-white" placeholder="youremail@email.com" required></input>
                       </div>
                       <div>
-                          <label htmlFor="password" className="block mb-2 tracking-widest font-thin font-press2start text-xs text-white">Password</label>
-                          <input type="password" name="password" id="password" placeholder="••••••••" className="border sm:text-sm rounded-lg block w-full p-2.5 bg-zinc-400 bg-opacity-25 border-gray-600 placeholder-gray-400 text-white" required></input>
+                          <label htmlFor="password" className="block mb-2 tracking-widest font-thin font-press2start text-xs text-white">First Name</label>
+                          <input type="password" name="password" id="password" placeholder="First Name" className="border sm:text-sm rounded-lg block w-full p-2.5 bg-zinc-400 bg-opacity-25 border-gray-600 placeholder-gray-400 text-white" required></input>
+                      </div>
+                      <div>
+                          <label htmlFor="password" className="block tracking-widest font-thin font-press2start text-xs text-white">Last Name</label>
+                          <input type="password" name="password" id="password" placeholder="Last Name" className="border sm:text-sm rounded-lg block w-full p-2.5 bg-zinc-400 bg-opacity-25 border-gray-600 placeholder-gray-400 text-white" required></input>
                       </div>
                       <div>
                           <label htmlFor="password" className="block tracking-widest font-thin font-press2start text-xs text-white">Password</label>
                           <input type="password" name="password" id="password" placeholder="••••••••" className="border sm:text-sm rounded-lg block w-full p-2.5 bg-zinc-400 bg-opacity-25 border-gray-600 placeholder-gray-400 text-white" required></input>
                       </div>
-                      <button type="submit" onClick={setIsSignedInTrue} className="w-full text-white mt-8 bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-600 font-semibold rounded-lg text-sm px-5 py-2.5 text-center">Create an account</button>
+                      <button type="submit" onClick={setIsSignedInTrue} className="w-full text-white bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-600 font-semibold rounded-lg text-sm px-5 py-2.5 text-center">Create an account</button>
                       <div className="flex items-center justify-start">
                         <p className="text-sm font-light text-gray-100">
                           Already have an account?
