@@ -47,9 +47,9 @@ const DropDown: React.FC<StateProps> = ({
   };
 
   return (
-    <div className="sec-center">
+    <div className="sec-center w-96">
       <input
-        className="dropdown"
+        className="dropdown w-96"
         type="checkbox"
         id="dropdown"
         name="dropdown"

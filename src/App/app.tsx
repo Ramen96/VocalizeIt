@@ -77,6 +77,18 @@ const App: React.FC = () => {
         setSignInState={setSignInState}
         signInState={signInState}
        />
+       <DropDown 
+         voiceArrayPosition={voiceArrayPosition}
+         voiceName={voiceName}
+         voiceId={voiceId}
+         setVoiceName={setVoiceName}
+         setVoiceId={setVoiceId}
+         setVoiceArrayPosition={setVoiceArrayPosition}
+       />
+       <Text
+         setText={setText}
+         generating={generating}
+       />
        <AudioPlayer
          voiceId={voiceId}
          url={url}
@@ -89,18 +101,6 @@ const App: React.FC = () => {
          downloadableMp3={downloadableMp3}
          setDownloadableMp3={setDownloadableMp3}
          setGenerating={setGenerating}
-       />
-       <DropDown 
-         voiceArrayPosition={voiceArrayPosition}
-         voiceName={voiceName}
-         voiceId={voiceId}
-         setVoiceName={setVoiceName}
-         setVoiceId={setVoiceId}
-         setVoiceArrayPosition={setVoiceArrayPosition}
-       />
-       <Text
-         setText={setText}
-         generating={generating}
        />
        <Submit 
          setButtonClicked={setButtonClicked}

@@ -102,8 +102,8 @@ const AudioPlayer: React.FC<StateProps> = ({
   })
 
   return(
-    <div className="border-top w-96 flex justify-center items-center">
-      <audio controls className="ext-audio m-4" id="ext-audio-player">
+    <div className="w-96 flex justify-center items-center mb-2">
+      <audio controls className="ext-audio m-4 w-full" id="ext-audio-player">
         <source id="ext-audio-player" src="#" type="audio/ogg" />
         <source id="ext-audio-player" src="#" type="audio/ogg"/>
       </audio>

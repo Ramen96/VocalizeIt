@@ -20,7 +20,7 @@ const Text: React.FC<StateProps> = ({ setText, generating }) => {
         id="large-textarea"
         placeholder="Paste or type something..."
         readOnly
-        className="w-full h-56 p-4 border bg-neutral-700 bg-opacity-30 text-base rounded-2xl font-mono border-gray-200 text-gray-300 resize-none overflow-auto focus:outline-none focus:ring-0 focus:border-gray-50 focus:ring-gray-50"
+        className="w-full h-64 p-4 border bg-neutral-700 bg-opacity-30 text-base rounded-2xl font-mono border-gray-200 text-gray-300 resize-none overflow-auto focus:outline-none focus:ring-0 focus:border-gray-50 focus:ring-gray-50"
         onChange={textChange}
       ></textarea>
       <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
@@ -40,7 +40,7 @@ const Text: React.FC<StateProps> = ({ setText, generating }) => {
         id="large-textarea"
         placeholder="Paste or type something..."
         style={{marginTop: "5px"}}
-        className="w-full h-56 p-4 border bg-neutral-700 bg-opacity-30 text-base rounded-2xl font-mono border-gray-200 text-gray-300 resize-none overflow-auto focus:outline-none focus:ring-0 focus:border-gray-50 focus:ring-gray-50"
+        className="w-full h-64 p-4 border bg-neutral-700 bg-opacity-30 text-base rounded-2xl font-mono border-gray-200 text-gray-300 resize-none overflow-auto focus:outline-none focus:ring-0 focus:border-gray-50 focus:ring-gray-50"
         onChange={textChange}
       ></textarea>
     </div>
