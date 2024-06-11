@@ -15,6 +15,7 @@ const App: React.FC = () => {
     name: string;
   }
 
+  // App states
   const [url, setUrl] = useState<string>('');
   const [text, setText] = useState<string>('Hello there, this extension uses the eleven labs API to create human sounding voices. This is the default voice Liam. You can paste or type anything you like to call the API and generate an MP3 file which you can then download.');
   const [buttonClicked, setButtonClicked] = useState<boolean>(false);
@@ -24,8 +25,14 @@ const App: React.FC = () => {
   const [donwloadClicked, setDownloadClicked] = useState<boolean>(false);
   const [downloadableMp3, setDownloadableMp3] = useState<boolean>(false);
   const [generating, setGenerating] = useState<boolean>(false);
+
+  // Login states
   const [signInState, setSignInState,] = useState<string>('login');
-  
+  const [emailText, setEmailText] = useState<string>('');
+  const [firstName, setFirstName] = useState<string>('');
+  const [lastName, setLastName] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+
   async function getActiveTabUrl() {
     return new Promise((resolve, reject) => {
       chrome.tabs.query({ active: true, currentWindow: true }, (array) => {
@@ -66,7 +73,15 @@ const App: React.FC = () => {
         signInState={signInState}
        />
         <SignUp
-           setSignInState={setSignInState}
+          password={password}
+          lastName={lastName}
+          firstName={firstName}
+          emailText={emailText}
+          setSignInState={setSignInState}
+          setEmailText={setEmailText}
+          setFirstName={setFirstName}
+          setLastName={setLastName}
+          setPassword={setPassword}
         />
       </div>
     )
