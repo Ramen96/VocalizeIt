@@ -27,8 +27,8 @@ const App: React.FC = () => {
   const [generating, setGenerating] = useState<boolean>(false);
 
   // Login states
-  const [signInState, setSignInState,] = useState<string>('login');
-  const [emailText, setEmailText] = useState<string>('');
+  const [signInState, setSignInState,] = useState<string>('login'); // Reference: login states are 'login', 'home', and 'sign up'
+  const [userEmail, setuserEmail] = useState<string>('');
   const [firstName, setFirstName] = useState<string>('');
   const [lastName, setLastName] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -76,9 +76,9 @@ const App: React.FC = () => {
           password={password}
           lastName={lastName}
           firstName={firstName}
-          emailText={emailText}
+          userEmail={userEmail}
           setSignInState={setSignInState}
-          setEmailText={setEmailText}
+          setuserEmail={setuserEmail}
           setFirstName={setFirstName}
           setLastName={setLastName}
           setPassword={setPassword}

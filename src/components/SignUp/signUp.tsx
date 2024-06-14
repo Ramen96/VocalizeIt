@@ -3,69 +3,67 @@ import '../Nav/fonts.css'
 import '../../assets/tailwind.css';
 
 interface StateProps {
-  emailText: string;
+  userEmail: string;
   firstName: string;
   lastName: string;
   password: string;
 
   setSignInState: (clicked: string) => void;
-  setEmailText: (text: string) => void;
+  setuserEmail: (text: string) => void;
   setFirstName: (text: string) => void;
   setLastName: (text: string) => void;
   setPassword: (text: string) => void;
 }
 
 const SignUp: React.FC<StateProps> = ({ 
-  emailText,
+  userEmail,
   firstName,
   lastName,
   password,
 
   setSignInState, 
-  setEmailText,
+  setuserEmail,
   setFirstName,
   setLastName,
   setPassword 
   }) => {
 
-  const emailChange = (event) => setEmailText(event.target.value);
+  const emailChange = (event) => setuserEmail(event.target.value);
   const firstNameChange = (event) => setFirstName(event.target.value);
   const lastNameChange = (event) => setLastName(event.target.value);
   const passwordChange = (event) => setPassword(event.target.value);
-  const setIsSignedInTrue = () => setSignInState('home');
   const stateIsLogin = () => setSignInState('login');
 
-  const submitSignUp = () => {
-    const options = {
+  const submitSignUp = (event) => {
+    event.preventDefault()  // Learned something new here, this function prevents the form's default behavior.
+    const options = {       // In this case it is the buttons onClick function
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        email: emailText,
+        email: userEmail,
         firstname: firstName,
         lastname: lastName,
         password:password
       })
     }
-    if (emailText != '' && 
+    if (userEmail != '' && 
         firstName != '' && 
         lastName != '' &&
         password != ''
        ) {
         fetch('http://127.0.0.1:3000/register', options)
-        .then(response => {
-          if (response.status === 200) {
-            console.log('success');
-            setIsSignedInTrue();
-            // TODO:
-            // figure out how to setIsSignedInTrue(); = true 
-            // if response is 200 
+        .then(response => response.json())
+        .then(user => {
+          if (user.id) {
+            setSignInState('home')
+            setFirstName(user.firstname)
+            setLastName(user.lastname)
+            setuserEmail(user.email)
           }
         })
        }
-    // fetch('http://127.0.0.1:3000/register', options)
-    //     .then(response => console.log(response))
   }
 
   return (
