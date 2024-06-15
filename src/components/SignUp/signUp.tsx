@@ -63,6 +63,7 @@ const SignUp: React.FC<StateProps> = ({
             setuserEmail(user.email)
           }
         })
+        .catch(err => console.log('Error: Unable to regester user'))
        }
   }
 
