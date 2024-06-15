@@ -33,6 +33,24 @@ const App: React.FC = () => {
   const [lastName, setLastName] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
+  function setInitialState() {
+    setUrl('');
+    setText('Hello there, this extension uses the eleven labs API to create human sounding voices. This is the default voice Liam. You can paste or type anything you like to call the API and generate an MP3 file which you can then download.');
+    setButtonClicked(false);
+    setVoiceId("TX3LPaxmHKxFdv7VOQHJ");
+    setVoiceName('AI Voices');
+    setVoiceArrayPosition([]);
+    setDownloadClicked(false);
+    setDownloadableMp3(false);
+    setGenerating(false);
+    setuserEmail('');
+    setFirstName('');
+    setLastName('');
+    setPassword('');
+  };
+
+  signInState === 'login' || signInState === 'sign up' && setInitialState();
+
   async function getActiveTabUrl() {
     return new Promise((resolve, reject) => {
       chrome.tabs.query({ active: true, currentWindow: true }, (array) => {
