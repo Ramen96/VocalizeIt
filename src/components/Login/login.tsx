@@ -41,7 +41,6 @@ const Login: React.FC<StateProps> = ({
       fetch('http://127.0.0.1:3000/signin', options)
       .then(response => response.json())
       .then(user => user.id ? setSignInState('home') : alert('Invalid Credentails'))
-      .then(data => console.log(data))
       .catch(err => console.log('Error logging in'))
     }
   }

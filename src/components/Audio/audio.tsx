@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import '../../assets/tailwind.css';
 
 interface StateProps {
+  userEmail: string,
+  password: string,
   url: string;
   text: string;
   voiceId: string;
@@ -17,11 +19,14 @@ interface StateProps {
 }
 
 const AudioPlayer: React.FC<StateProps> = ({ 
+  userEmail,
+  password,
   buttonClicked,
   voiceId,
   text,
   donwloadClicked,
   downloadableMp3,
+
   setButtonClicked,
   setDownloadClicked,
   setDownloadableMp3,
@@ -33,21 +38,16 @@ const AudioPlayer: React.FC<StateProps> = ({
     const options = {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
-        "xi-api-key": "YOUR_API_KEY"
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        text: text,
-        model_id: "eleven_multilingual_v1",
-        "voice_settings": {
-            "stability": 0.5,
-            "similarity_boost": 0.8,
-            "style": 0.0,
-            "use_speaker_boost": true
-        }
+        voiceId: voiceId,
+        email: userEmail,
+        password: password,
+        text: text
       })
     };
-      fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceId}/stream`, options)
+      fetch(`http://127.0.0.1:3000/api`, options)
       .then(response => response.blob())
       .then(blob => {
 

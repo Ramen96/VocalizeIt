@@ -109,6 +109,8 @@ const App: React.FC = () => {
          generating={generating}
        />
        <AudioPlayer
+         userEmail={userEmail}
+         password={password}
          voiceId={voiceId}
          url={url}
          text={text}
