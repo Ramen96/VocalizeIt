@@ -61,7 +61,11 @@ const App: React.FC = () => {
           setSignInState={setSignInState}
         />
         <Login
+          password={password}
+          userEmail={userEmail}
           setSignInState={setSignInState}
+          setPassword={setPassword}
+          setuserEmail={setuserEmail}
         />
       </div>
     )
