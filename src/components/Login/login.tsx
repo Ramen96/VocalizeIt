@@ -1,10 +1,12 @@
 import React from "react";
 import '../Nav/fonts.css'
 import '../../assets/tailwind.css';
+import { useEffect } from 'react';
 
 interface StateProps {
   userEmail: string;
   password: string;
+  signInState: string;
 
   setSignInState: (clicked: string) => void;
   setPassword: (text: string) => void;
@@ -14,19 +16,18 @@ interface StateProps {
 const Login: React.FC<StateProps> = ({ 
   userEmail,
   password,
+  signInState,
 
   setSignInState,
   setPassword,
   setuserEmail
  }) => {
- 
+  
   const setStateSignUp = () => setSignInState('sign up');
-
   const passwordChange = (event) => setPassword(event.target.value);
   const emailChange = (event) => setuserEmail(event.target.value);
 
-  const login = (event) => {
-    event.preventDefault()
+  const login = () => {
     const options = {
       method: 'POST',
       headers: {
@@ -43,6 +44,34 @@ const Login: React.FC<StateProps> = ({
       .then(user => user.id ? setSignInState('home') : alert('Invalid Credentails'))
       .catch(err => console.log('Error logging in'))
     }
+  }
+
+  if (signInState === 'auto log') {
+    login();
+  }
+
+  const handleStorage = () => {
+    chrome.storage.local.set({ 
+      email: userEmail,
+      password: password
+    }).then(() => {
+      console.log('Values set');
+    });
+  };
+
+  useEffect(() => {
+    chrome.storage.local.get(["email", "password"], (res) => {
+      if (res.email  && res.password ) {
+        setPassword(res.password);
+        setuserEmail(res.email);
+      }
+    });
+  }, [])
+
+  const submitLogin = (event) => {
+    event.preventDefault();
+    handleStorage();
+    login();
   }
 
   return (
@@ -74,7 +103,7 @@ const Login: React.FC<StateProps> = ({
                           </div>
                           <a href="#" className="text-sm font-medium hover:underline text-gray-300">Forgot password?</a>
                       </div>
-                      <button type="submit" onClick={login} className="w-full text-white bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-600 rounded-lg text-sm px-5 py-2.5 text-center font-semibold">Sign in</button>
+                      <button type="submit" onClick={submitLogin} className="w-full text-white bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-600 rounded-lg text-sm px-5 py-2.5 text-center font-semibold">Sign in</button>
                       <div className="flex items-center justify-start">
                         <p className="text-sm font-light text-gray-100">
                             Don’t have an account yet?

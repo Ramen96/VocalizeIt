@@ -17,11 +17,11 @@
     "tabs",
     "activeTab",
     "scripting",
-    "downloads"
+    "downloads",
+    "storage"
   ],
   "background": {
-    "service_worker": "background.js",
-    "//": "Webpack is converting background.ts to .js so thats why it's .js here." 
+    "service_worker": "background.js"
   },
   "content_scripts": [
     {
@@ -31,4 +31,3 @@
   ],
   "options_page": "options.html"
 }
-

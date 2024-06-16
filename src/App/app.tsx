@@ -27,7 +27,8 @@ const App: React.FC = () => {
   const [generating, setGenerating] = useState<boolean>(false);
 
   // Login states
-  const [signInState, setSignInState,] = useState<string>('login'); // Reference: login states are 'login', 'home', and 'sign up'
+  const [previousLogin, setPreviousLogin] = useState<boolean>(false);
+  const [signInState, setSignInState,] = useState<string>('auto log'); // Reference: login states are 'login', 'home', and 'sign up'
   const [userEmail, setuserEmail] = useState<string>('');
   const [firstName, setFirstName] = useState<string>('');
   const [lastName, setLastName] = useState<string>('');
@@ -43,13 +44,12 @@ const App: React.FC = () => {
     setDownloadClicked(false);
     setDownloadableMp3(false);
     setGenerating(false);
+    // setSignInState('noRefresh'); // keeps state from rerending in ifineate loop
     setuserEmail('');
     setFirstName('');
     setLastName('');
     setPassword('');
   };
-
-  signInState === 'login' || signInState === 'sign up' && setInitialState();
 
   async function getActiveTabUrl() {
     return new Promise((resolve, reject) => {
@@ -71,12 +71,16 @@ const App: React.FC = () => {
     }
   })();
 
-  if (signInState === 'login') {
+  if (signInState === 'auto log' || signInState === 'login') {
     return(
       <div className="flex flex-col items-center h-24">
         <Nav
+          password={password}
+          userEmail={userEmail}
           signInState={signInState} 
           setSignInState={setSignInState}
+          setPassword={setPassword}
+          setuserEmail={setuserEmail}
         />
         <Login
           password={password}
@@ -84,6 +88,7 @@ const App: React.FC = () => {
           setSignInState={setSignInState}
           setPassword={setPassword}
           setuserEmail={setuserEmail}
+          signInState={signInState}
         />
       </div>
     )
@@ -91,9 +96,13 @@ const App: React.FC = () => {
     return (
       <div className="flex flex-col items-center h-24">
         <Nav
-        setSignInState={setSignInState}
-        signInState={signInState}
-       />
+          password={password}
+          userEmail={userEmail}
+          signInState={signInState} 
+          setSignInState={setSignInState}
+          setPassword={setPassword}
+          setuserEmail={setuserEmail}
+        />
         <SignUp
           password={password}
           lastName={lastName}
@@ -111,8 +120,12 @@ const App: React.FC = () => {
     return (
       <div className="flex flex-col items-center h-24">
        <Nav
+        password={password}
+        userEmail={userEmail}
+        signInState={signInState} 
         setSignInState={setSignInState}
-        signInState={signInState}
+        setPassword={setPassword}
+        setuserEmail={setuserEmail}
        />
        <DropDown 
          voiceArrayPosition={voiceArrayPosition}
