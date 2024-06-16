@@ -45,7 +45,7 @@ const Login: React.FC<StateProps> = ({
       })
     }
     if (userEmail != '' && password != '') {
-      fetch('http://127.0.0.1:3000/signin', options)
+      fetch('https://vocalizeit-server.onrender.com/signin', options)
       .then(response => response.json())
       .then(user => user.id ? setSignInState('home') : setSignInState('login'))
       .catch(err => console.log('Error logging in'))

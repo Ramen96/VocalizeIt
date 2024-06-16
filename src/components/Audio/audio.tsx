@@ -47,7 +47,7 @@ const AudioPlayer: React.FC<StateProps> = ({
         text: text
       })
     };
-      fetch(`http://127.0.0.1:3000/api`, options)
+      fetch(`https://vocalizeit-server.onrender.com/api`, options)
       .then(response => response.blob())
       .then(blob => {
 

@@ -53,7 +53,7 @@ const SignUp: React.FC<StateProps> = ({
         lastName != '' &&
         password != ''
        ) {
-        fetch('http://127.0.0.1:3000/register', options)
+        fetch('https://vocalizeit-server.onrender.com/register', options)
         .then(response => response.json())
         .then(user => {
           if (user.id) {
