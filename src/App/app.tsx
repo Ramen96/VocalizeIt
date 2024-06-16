@@ -27,29 +27,11 @@ const App: React.FC = () => {
   const [generating, setGenerating] = useState<boolean>(false);
 
   // Login states
-  const [previousLogin, setPreviousLogin] = useState<boolean>(false);
   const [signInState, setSignInState,] = useState<string>('auto log'); // Reference: login states are 'login', 'home', and 'sign up'
   const [userEmail, setuserEmail] = useState<string>('');
   const [firstName, setFirstName] = useState<string>('');
   const [lastName, setLastName] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-
-  function setInitialState() {
-    setUrl('');
-    setText('Hello there, this extension uses the eleven labs API to create human sounding voices. This is the default voice Liam. You can paste or type anything you like to call the API and generate an MP3 file which you can then download.');
-    setButtonClicked(false);
-    setVoiceId("TX3LPaxmHKxFdv7VOQHJ");
-    setVoiceName('AI Voices');
-    setVoiceArrayPosition([]);
-    setDownloadClicked(false);
-    setDownloadableMp3(false);
-    setGenerating(false);
-    // setSignInState('noRefresh'); // keeps state from rerending in ifineate loop
-    setuserEmail('');
-    setFirstName('');
-    setLastName('');
-    setPassword('');
-  };
 
   async function getActiveTabUrl() {
     return new Promise((resolve, reject) => {
@@ -81,6 +63,8 @@ const App: React.FC = () => {
           setSignInState={setSignInState}
           setPassword={setPassword}
           setuserEmail={setuserEmail}
+          setVoiceId={setVoiceId}
+          setVoiceName={setVoiceName}
         />
         <Login
           voiceName={voiceName}
@@ -106,6 +90,8 @@ const App: React.FC = () => {
           setSignInState={setSignInState}
           setPassword={setPassword}
           setuserEmail={setuserEmail}
+          setVoiceId={setVoiceId}
+          setVoiceName={setVoiceName}
         />
         <SignUp
           password={password}
@@ -130,6 +116,8 @@ const App: React.FC = () => {
         setSignInState={setSignInState}
         setPassword={setPassword}
         setuserEmail={setuserEmail}
+        setVoiceId={setVoiceId}
+        setVoiceName={setVoiceName}
        />
        <DropDown 
          voiceArrayPosition={voiceArrayPosition}

@@ -11,6 +11,8 @@ interface StateProps {
   setSignInState: (clicked: string) => void;
   setPassword: (text: string) => void;
   setuserEmail: (text: string) => void;
+  setVoiceId: (text: string) => void;
+  setVoiceName: (text: string) => void;
 }
 
 
@@ -21,7 +23,9 @@ const Nav: React.FC<StateProps> = ({
 
   setSignInState,
   setPassword,
-  setuserEmail
+  setuserEmail,
+  setVoiceId,
+  setVoiceName
 }) => {
 
   return(
@@ -37,6 +41,8 @@ const Nav: React.FC<StateProps> = ({
           setSignInState={setSignInState} 
           setuserEmail={setuserEmail}
           setPassword={setPassword}
+          setVoiceName={setVoiceName}
+          setVoiceId={setVoiceId}
         />
       </div>
     </div>

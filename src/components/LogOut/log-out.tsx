@@ -9,12 +9,16 @@ interface StateProps {
   setSignInState: (clicked: string) => void;
   setPassword: (text: string) => void;
   setuserEmail: (text: string) => void;
+  setVoiceId: (text: string) => void;
+  setVoiceName: (text: string) => void;
 }
 
 const Logout: React.FC<StateProps> = ({ 
   setSignInState, 
   setPassword,
   setuserEmail,
+  setVoiceId,
+  setVoiceName,
   signInState 
 }) => {
 
@@ -31,6 +35,8 @@ const Logout: React.FC<StateProps> = ({
     setSignInState('login')
     setPassword('');
     setuserEmail('');
+    setVoiceId('TX3LPaxmHKxFdv7VOQHJ');
+    setVoiceName('AI Voices')
     handleStorage();
   }
 

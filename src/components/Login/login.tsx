@@ -2,7 +2,6 @@ import React from "react";
 import '../Nav/fonts.css'
 import '../../assets/tailwind.css';
 import { useEffect } from 'react';
-import { resolve } from "path";
 
 interface StateProps {
   userEmail: string;
@@ -22,8 +21,6 @@ const Login: React.FC<StateProps> = ({
   userEmail,
   password,
   signInState,
-  voiceName,
-  voiceId,
 
   setVoiceName,
   setVoiceId,
@@ -58,7 +55,7 @@ const Login: React.FC<StateProps> = ({
   useEffect(() => {
     const asyncStateCheck = async () => {
       if (signInState === 'auto log') {
-        await new Promise(resolve => setTimeout(resolve, 200));
+        await new Promise(resolve => setTimeout(resolve, 25));
         login();
       }
     };
