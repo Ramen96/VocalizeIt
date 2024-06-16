@@ -2,12 +2,17 @@ import React from "react";
 import '../Nav/fonts.css'
 import '../../assets/tailwind.css';
 import { useEffect } from 'react';
+import { resolve } from "path";
 
 interface StateProps {
   userEmail: string;
   password: string;
   signInState: string;
-
+  voiceName: string;
+  voiceId: string;
+  
+  setVoiceName: (name: string) => void;
+  setVoiceId: (id: string) => void;
   setSignInState: (clicked: string) => void;
   setPassword: (text: string) => void;
   setuserEmail: (text: string) => void;
@@ -17,7 +22,11 @@ const Login: React.FC<StateProps> = ({
   userEmail,
   password,
   signInState,
+  voiceName,
+  voiceId,
 
+  setVoiceName,
+  setVoiceId,
   setSignInState,
   setPassword,
   setuserEmail
@@ -41,14 +50,20 @@ const Login: React.FC<StateProps> = ({
     if (userEmail != '' && password != '') {
       fetch('http://127.0.0.1:3000/signin', options)
       .then(response => response.json())
-      .then(user => user.id ? setSignInState('home') : alert('Invalid Credentails'))
+      .then(user => user.id ? setSignInState('home') : setSignInState('login'))
       .catch(err => console.log('Error logging in'))
     }
   }
 
-  if (signInState === 'auto log') {
-    login();
-  }
+  useEffect(() => {
+    const asyncStateCheck = async () => {
+      if (signInState === 'auto log') {
+        await new Promise(resolve => setTimeout(resolve, 200));
+        login();
+      }
+    };
+    asyncStateCheck();
+  }, [signInState, login]);
 
   const handleStorage = () => {
     chrome.storage.local.set({ 
@@ -60,10 +75,12 @@ const Login: React.FC<StateProps> = ({
   };
 
   useEffect(() => {
-    chrome.storage.local.get(["email", "password"], (res) => {
+    chrome.storage.local.get(["email", "password", "voiceName", "voiceId"], (res) => {
       if (res.email  && res.password ) {
         setPassword(res.password);
         setuserEmail(res.email);
+        setVoiceId(res.voiceId);
+        setVoiceName(res.voiceName);
       }
     });
   }, [])

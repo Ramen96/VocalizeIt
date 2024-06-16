@@ -83,11 +83,15 @@ const App: React.FC = () => {
           setuserEmail={setuserEmail}
         />
         <Login
+          voiceName={voiceName}
+          voiceId={voiceId}
           password={password}
           userEmail={userEmail}
           setSignInState={setSignInState}
           setPassword={setPassword}
           setuserEmail={setuserEmail}
+          setVoiceName={setVoiceName}
+          setVoiceId={setVoiceId}
           signInState={signInState}
         />
       </div>

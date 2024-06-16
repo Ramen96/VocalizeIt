@@ -43,6 +43,7 @@ const DropDown: React.FC<StateProps> = ({
   const handleOptionClick = (voice) => {
     setVoiceName(voice.name);
     setVoiceId(voice.voice_id);
+    chrome.storage.local.set({ voiceName: voice.name, voiceId: voice.voice_id });
     setIsDropdownOpen(false); 
   };
 
